@@ -1,0 +1,15 @@
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/bin/Debug/net8.0/Kovan.Application.deps.json
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/bin/Debug/net8.0/Kovan.Application.dll
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/bin/Debug/net8.0/Kovan.Application.pdb
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/bin/Debug/net8.0/Kovan.Domain.dll
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/bin/Debug/net8.0/Kovan.Domain.pdb
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Application.csproj.AssemblyReference.cache
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Application.AssemblyInfoInputs.cache
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Application.AssemblyInfo.cs
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Application.csproj.CoreCompileInputs.cache
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Ap.EBCF1F05.Up2Date
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Application.dll
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/refint/Kovan.Application.dll
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Application.pdb
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/ref/Kovan.Application.dll

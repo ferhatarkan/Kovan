@@ -1,0 +1,6 @@
+@Kovan.Api_HostAddress = http://localhost:5193
+
+GET {{Kovan.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,3 @@
+2026-08-04 21:32:34.173 +03:00 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-04 21:32:34.201 +03:00 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-04 21:32:34.233 +03:00 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
