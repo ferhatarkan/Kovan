@@ -1628,20 +1628,18 @@
           }
         }
       },
-      "SkiaSharp/2.88.6": {
+      "SkiaSharp/3.119.1": {
         "type": "package",
         "dependencies": {
-          "SkiaSharp.NativeAssets.Win32": "2.88.6",
-          "SkiaSharp.NativeAssets.macOS": "2.88.6"
+          "SkiaSharp.NativeAssets.Win32": "3.119.1",
+          "SkiaSharp.NativeAssets.macOS": "3.119.1"
         },
         "compile": {
-          "lib/net6.0/SkiaSharp.dll": {
-            "related": ".pdb;.xml"
-          }
+          "ref/net8.0/SkiaSharp.dll": {}
         },
         "runtime": {
-          "lib/net6.0/SkiaSharp.dll": {
-            "related": ".pdb;.xml"
+          "lib/net8.0/SkiaSharp.dll": {
+            "related": ".pdb"
           }
         }
       },
@@ -1662,13 +1660,13 @@
           }
         }
       },
-      "SkiaSharp.NativeAssets.macOS/2.88.6": {
+      "SkiaSharp.NativeAssets.macOS/3.119.1": {
         "type": "package",
         "compile": {
-          "lib/net6.0/_._": {}
+          "lib/net8.0/_._": {}
         },
         "runtime": {
-          "lib/net6.0/_._": {}
+          "lib/net8.0/_._": {}
         },
         "runtimeTargets": {
           "runtimes/osx/native/libSkiaSharp.dylib": {
@@ -1677,13 +1675,13 @@
           }
         }
       },
-      "SkiaSharp.NativeAssets.Win32/2.88.6": {
+      "SkiaSharp.NativeAssets.Win32/3.119.1": {
         "type": "package",
         "compile": {
-          "lib/net6.0/_._": {}
+          "lib/net8.0/_._": {}
         },
         "runtime": {
-          "lib/net6.0/_._": {}
+          "lib/net8.0/_._": {}
         },
         "runtimeTargets": {
           "runtimes/win-arm64/native/libSkiaSharp.dll": {
@@ -2157,6 +2155,36 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
+      "ZXing.Net/0.16.11": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/zxing.dll": {
+            "related": ".XML"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/zxing.dll": {
+            "related": ".XML"
+          }
+        }
+      },
+      "ZXing.Net.Bindings.SkiaSharp/0.16.22": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "3.119.1",
+          "ZXing.Net": "0.16.11"
+        },
+        "compile": {
+          "lib/net8.0/ZXing.SkiaSharp.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/ZXing.SkiaSharp.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Kovan.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -2200,7 +2228,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.4",
           "Microsoft.EntityFrameworkCore": "8.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.2",
-          "QuestPDF": "2023.12.1"
+          "QuestPDF": "2023.12.1",
+          "ZXing.Net.Bindings.SkiaSharp": "0.16.22"
         },
         "compile": {
           "bin/placeholder/Kovan.Infrastructure.dll": {}
@@ -4675,77 +4704,55 @@
         "serilog.sinks.file.nuspec"
       ]
     },
-    "SkiaSharp/2.88.6": {
-      "sha512": "wdfeBAQrEQCbJIRgAiargzP1Uy+0grZiG4CSgBnhAgcJTsPzlifIaO73JRdwIlT3TyBoeU9jEqzwFUhl4hTYnQ==",
+    "SkiaSharp/3.119.1": {
+      "sha512": "+Ru1BTSZQne3Vp+vbSb50Ke3Nlc3ZnItxx4+751J9WZ8YzLKAV/n+9DAo4zFTyeCI//ueT63c+VybmTTpYBEiw==",
       "type": "package",
-      "path": "skiasharp/2.88.6",
+      "path": "skiasharp/3.119.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.txt",
-        "THIRD-PARTY-NOTICES.txt",
+        "README.md",
+        "icon.png",
         "interactive-extensions/dotnet/SkiaSharp.DotNet.Interactive.dll",
-        "lib/monoandroid1.0/SkiaSharp.dll",
-        "lib/monoandroid1.0/SkiaSharp.pdb",
-        "lib/monoandroid1.0/SkiaSharp.xml",
         "lib/net462/SkiaSharp.dll",
         "lib/net462/SkiaSharp.pdb",
-        "lib/net462/SkiaSharp.xml",
-        "lib/net6.0-android30.0/SkiaSharp.dll",
-        "lib/net6.0-android30.0/SkiaSharp.pdb",
-        "lib/net6.0-android30.0/SkiaSharp.xml",
-        "lib/net6.0-ios13.6/SkiaSharp.dll",
-        "lib/net6.0-ios13.6/SkiaSharp.pdb",
-        "lib/net6.0-ios13.6/SkiaSharp.xml",
-        "lib/net6.0-maccatalyst13.5/SkiaSharp.dll",
-        "lib/net6.0-maccatalyst13.5/SkiaSharp.pdb",
-        "lib/net6.0-maccatalyst13.5/SkiaSharp.xml",
-        "lib/net6.0-macos10.15/SkiaSharp.dll",
-        "lib/net6.0-macos10.15/SkiaSharp.pdb",
-        "lib/net6.0-macos10.15/SkiaSharp.xml",
-        "lib/net6.0-tizen7.0/SkiaSharp.dll",
-        "lib/net6.0-tizen7.0/SkiaSharp.pdb",
-        "lib/net6.0-tizen7.0/SkiaSharp.xml",
-        "lib/net6.0-tvos13.4/SkiaSharp.dll",
-        "lib/net6.0-tvos13.4/SkiaSharp.pdb",
-        "lib/net6.0-tvos13.4/SkiaSharp.xml",
         "lib/net6.0/SkiaSharp.dll",
         "lib/net6.0/SkiaSharp.pdb",
-        "lib/net6.0/SkiaSharp.xml",
-        "lib/netcoreapp3.1/SkiaSharp.dll",
-        "lib/netcoreapp3.1/SkiaSharp.pdb",
-        "lib/netcoreapp3.1/SkiaSharp.xml",
-        "lib/netstandard1.3/SkiaSharp.dll",
-        "lib/netstandard1.3/SkiaSharp.pdb",
-        "lib/netstandard1.3/SkiaSharp.xml",
+        "lib/net8.0-android34.0/SkiaSharp.dll",
+        "lib/net8.0-android34.0/SkiaSharp.pdb",
+        "lib/net8.0-android34.0/SkiaSharp.xml",
+        "lib/net8.0-ios17.0/SkiaSharp.dll",
+        "lib/net8.0-ios17.0/SkiaSharp.pdb",
+        "lib/net8.0-maccatalyst17.0/SkiaSharp.dll",
+        "lib/net8.0-maccatalyst17.0/SkiaSharp.pdb",
+        "lib/net8.0-macos14.0/SkiaSharp.dll",
+        "lib/net8.0-macos14.0/SkiaSharp.pdb",
+        "lib/net8.0-tizen7.0/SkiaSharp.dll",
+        "lib/net8.0-tizen7.0/SkiaSharp.pdb",
+        "lib/net8.0-tvos17.0/SkiaSharp.dll",
+        "lib/net8.0-tvos17.0/SkiaSharp.pdb",
+        "lib/net8.0-windows10.0.19041/SkiaSharp.dll",
+        "lib/net8.0-windows10.0.19041/SkiaSharp.pdb",
+        "lib/net8.0/SkiaSharp.dll",
+        "lib/net8.0/SkiaSharp.pdb",
         "lib/netstandard2.0/SkiaSharp.dll",
         "lib/netstandard2.0/SkiaSharp.pdb",
-        "lib/netstandard2.0/SkiaSharp.xml",
         "lib/netstandard2.1/SkiaSharp.dll",
         "lib/netstandard2.1/SkiaSharp.pdb",
-        "lib/netstandard2.1/SkiaSharp.xml",
-        "lib/tizen40/SkiaSharp.dll",
-        "lib/tizen40/SkiaSharp.pdb",
-        "lib/tizen40/SkiaSharp.xml",
-        "lib/uap10.0.10240/SkiaSharp.dll",
-        "lib/uap10.0.10240/SkiaSharp.pdb",
-        "lib/uap10.0.10240/SkiaSharp.xml",
-        "lib/uap10.0.16299/SkiaSharp.dll",
-        "lib/uap10.0.16299/SkiaSharp.pdb",
-        "lib/uap10.0.16299/SkiaSharp.xml",
-        "lib/xamarinios1.0/SkiaSharp.dll",
-        "lib/xamarinios1.0/SkiaSharp.pdb",
-        "lib/xamarinios1.0/SkiaSharp.xml",
-        "lib/xamarinmac2.0/SkiaSharp.dll",
-        "lib/xamarinmac2.0/SkiaSharp.pdb",
-        "lib/xamarinmac2.0/SkiaSharp.xml",
-        "lib/xamarintvos1.0/SkiaSharp.dll",
-        "lib/xamarintvos1.0/SkiaSharp.pdb",
-        "lib/xamarintvos1.0/SkiaSharp.xml",
-        "lib/xamarinwatchos1.0/SkiaSharp.dll",
-        "lib/xamarinwatchos1.0/SkiaSharp.pdb",
-        "lib/xamarinwatchos1.0/SkiaSharp.xml",
-        "skiasharp.2.88.6.nupkg.sha512",
+        "ref/net462/SkiaSharp.dll",
+        "ref/net6.0/SkiaSharp.dll",
+        "ref/net8.0-android34.0/SkiaSharp.dll",
+        "ref/net8.0-ios17.0/SkiaSharp.dll",
+        "ref/net8.0-maccatalyst17.0/SkiaSharp.dll",
+        "ref/net8.0-macos14.0/SkiaSharp.dll",
+        "ref/net8.0-tizen7.0/SkiaSharp.dll",
+        "ref/net8.0-tvos17.0/SkiaSharp.dll",
+        "ref/net8.0-windows10.0.19041/SkiaSharp.dll",
+        "ref/net8.0/SkiaSharp.dll",
+        "ref/netstandard2.0/SkiaSharp.dll",
+        "ref/netstandard2.1/SkiaSharp.dll",
+        "skiasharp.3.119.1.nupkg.sha512",
         "skiasharp.nuspec"
       ]
     },
@@ -4779,51 +4786,55 @@
         "skiasharp.harfbuzz.nuspec"
       ]
     },
-    "SkiaSharp.NativeAssets.macOS/2.88.6": {
-      "sha512": "Sko9LFxRXSjb3OGh5/RxrVRXxYo48tr5NKuuSy6jB85GrYt8WRqVY1iLOLwtjPiVAt4cp+pyD4i30azanS64dw==",
+    "SkiaSharp.NativeAssets.macOS/3.119.1": {
+      "sha512": "6hR3BdLhApjDxR1bFrJ7/lMydPfI01s3K+3WjIXFUlfC0MFCFCwRzv+JtzIkW9bDXs7XUVQS+6EVf0uzCasnGQ==",
       "type": "package",
-      "path": "skiasharp.nativeassets.macos/2.88.6",
+      "path": "skiasharp.nativeassets.macos/3.119.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.txt",
+        "README.md",
         "THIRD-PARTY-NOTICES.txt",
         "build/net462/SkiaSharp.NativeAssets.macOS.targets",
-        "build/net6.0-macos10.15/SkiaSharp.NativeAssets.macOS.targets",
-        "build/xamarinmac2.0/SkiaSharp.NativeAssets.macOS.targets",
         "buildTransitive/net462/SkiaSharp.NativeAssets.macOS.targets",
-        "buildTransitive/net6.0-macos10.15/SkiaSharp.NativeAssets.macOS.targets",
-        "buildTransitive/xamarinmac2.0/SkiaSharp.NativeAssets.macOS.targets",
+        "buildTransitive/net8.0-macos14.0/SkiaSharp.NativeAssets.macOS.targets",
+        "icon.png",
         "lib/net462/_._",
-        "lib/net6.0-macos10.15/_._",
         "lib/net6.0/_._",
-        "lib/netcoreapp3.1/_._",
-        "lib/netstandard1.3/_._",
-        "lib/xamarinmac2.0/_._",
+        "lib/net8.0-macos14.0/_._",
+        "lib/net8.0/_._",
+        "lib/netstandard2.0/_._",
+        "lib/netstandard2.1/_._",
         "runtimes/osx/native/libSkiaSharp.dylib",
-        "skiasharp.nativeassets.macos.2.88.6.nupkg.sha512",
+        "skiasharp.nativeassets.macos.3.119.1.nupkg.sha512",
         "skiasharp.nativeassets.macos.nuspec"
       ]
     },
-    "SkiaSharp.NativeAssets.Win32/2.88.6": {
-      "sha512": "7TzFO0u/g2MpQsTty4fyCDdMcfcWI+aLswwfnYXr3gtNS6VLKdMXPMeKpJa3pJSLnUBN6wD0JjuCe8OoLBQ6cQ==",
+    "SkiaSharp.NativeAssets.Win32/3.119.1": {
+      "sha512": "8C4GSXVJqSr0y3Tyyv5jz6MJSTVUyYkMjeKrzK+VyZPGLo89MNoUEclVuYahzOCDdtbfXrd2HtxXfDuvoSXrUw==",
       "type": "package",
-      "path": "skiasharp.nativeassets.win32/2.88.6",
+      "path": "skiasharp.nativeassets.win32/3.119.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.txt",
+        "README.md",
         "THIRD-PARTY-NOTICES.txt",
         "build/net462/SkiaSharp.NativeAssets.Win32.targets",
         "buildTransitive/net462/SkiaSharp.NativeAssets.Win32.targets",
+        "icon.png",
         "lib/net462/_._",
+        "lib/net6.0-windows10.0.19041/_._",
         "lib/net6.0/_._",
-        "lib/netcoreapp3.1/_._",
-        "lib/netstandard1.3/_._",
+        "lib/net8.0-windows10.0.19041/_._",
+        "lib/net8.0/_._",
+        "lib/netstandard2.0/_._",
+        "lib/netstandard2.1/_._",
         "runtimes/win-arm64/native/libSkiaSharp.dll",
         "runtimes/win-x64/native/libSkiaSharp.dll",
         "runtimes/win-x86/native/libSkiaSharp.dll",
-        "skiasharp.nativeassets.win32.2.88.6.nupkg.sha512",
+        "skiasharp.nativeassets.win32.3.119.1.nupkg.sha512",
         "skiasharp.nativeassets.win32.nuspec"
       ]
     },
@@ -5564,6 +5575,122 @@
         "system.threading.channels.6.0.0.nupkg.sha512",
         "system.threading.channels.nuspec",
         "useSharedDesignerContext.txt"
+      ]
+    },
+    "ZXing.Net/0.16.11": {
+      "sha512": "OZfAVu88hl87BffQ+rlWCj/vLvAhhCK4QnFaoveeF/MY8SjHNSYBQ3qyUEWlPKNgBQGh1syXhCDg10vUnCsqkg==",
+      "type": "package",
+      "path": "zxing.net/0.16.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docs/README.md",
+        "lib/native/zxing.XML",
+        "lib/native/zxing.pri",
+        "lib/native/zxing.winmd",
+        "lib/net20-cf/zxing.ce2.0.dll",
+        "lib/net20-cf/zxing.ce2.0.xml",
+        "lib/net20/zxing.XML",
+        "lib/net20/zxing.dll",
+        "lib/net35-cf/zxing.ce3.5.dll",
+        "lib/net35-cf/zxing.ce3.5.xml",
+        "lib/net35/zxing.XML",
+        "lib/net35/zxing.dll",
+        "lib/net40/zxing.XML",
+        "lib/net40/zxing.dll",
+        "lib/net40/zxing.presentation.XML",
+        "lib/net40/zxing.presentation.dll",
+        "lib/net45/zxing.XML",
+        "lib/net45/zxing.dll",
+        "lib/net45/zxing.presentation.XML",
+        "lib/net45/zxing.presentation.dll",
+        "lib/net461/zxing.XML",
+        "lib/net461/zxing.dll",
+        "lib/net461/zxing.presentation.XML",
+        "lib/net461/zxing.presentation.dll",
+        "lib/net47/zxing.XML",
+        "lib/net47/zxing.dll",
+        "lib/net47/zxing.presentation.XML",
+        "lib/net47/zxing.presentation.dll",
+        "lib/net48/zxing.XML",
+        "lib/net48/zxing.dll",
+        "lib/net48/zxing.presentation.XML",
+        "lib/net48/zxing.presentation.dll",
+        "lib/net5.0/zxing.XML",
+        "lib/net5.0/zxing.dll",
+        "lib/net6.0/zxing.XML",
+        "lib/net6.0/zxing.dll",
+        "lib/net7.0/zxing.XML",
+        "lib/net7.0/zxing.dll",
+        "lib/net8.0/zxing.XML",
+        "lib/net8.0/zxing.dll",
+        "lib/net9.0/zxing.XML",
+        "lib/net9.0/zxing.dll",
+        "lib/netcoreapp3.0/zxing.dll",
+        "lib/netcoreapp3.0/zxing.xml",
+        "lib/netcoreapp3.1/zxing.dll",
+        "lib/netcoreapp3.1/zxing.xml",
+        "lib/netstandard1.0/zxing.dll",
+        "lib/netstandard1.0/zxing.xml",
+        "lib/netstandard1.1/zxing.dll",
+        "lib/netstandard1.1/zxing.xml",
+        "lib/netstandard1.3/zxing.dll",
+        "lib/netstandard1.3/zxing.xml",
+        "lib/netstandard2.0/zxing.dll",
+        "lib/netstandard2.0/zxing.xml",
+        "lib/netstandard2.1/zxing.dll",
+        "lib/netstandard2.1/zxing.xml",
+        "lib/portable-win+net40+sl4+sl5+wp7+wp71+wp8/zxing.portable.XML",
+        "lib/portable-win+net40+sl4+sl5+wp7+wp71+wp8/zxing.portable.dll",
+        "lib/sl3-wp/zxing.wp7.0.XML",
+        "lib/sl3-wp/zxing.wp7.0.dll",
+        "lib/sl4-wp71/zxing.wp7.1.XML",
+        "lib/sl4-wp71/zxing.wp7.1.dll",
+        "lib/sl4/zxing.sl4.XML",
+        "lib/sl4/zxing.sl4.dll",
+        "lib/sl5/zxing.sl5.XML",
+        "lib/sl5/zxing.sl5.dll",
+        "lib/uap10/zxing.dll",
+        "lib/uap10/zxing.pri",
+        "lib/uap10/zxing.xml",
+        "lib/windows8-managed/zxing.winrt.XML",
+        "lib/windows8-managed/zxing.winrt.dll",
+        "lib/windows8/zxing.XML",
+        "lib/windows8/zxing.pri",
+        "lib/windows8/zxing.winmd",
+        "lib/wp8/zxing.wp8.0.XML",
+        "lib/wp8/zxing.wp8.0.dll",
+        "logo.jpg",
+        "zxing.net.0.16.11.nupkg.sha512",
+        "zxing.net.nuspec"
+      ]
+    },
+    "ZXing.Net.Bindings.SkiaSharp/0.16.22": {
+      "sha512": "jdlarXJKukpYjnNf6bS7/ncRSZQh7v4uwUMFsaIc3MPZtY+fcQS0ONGXI4BSEEcNhxb8UfrULtRuL9ToLPhn1g==",
+      "type": "package",
+      "path": "zxing.net.bindings.skiasharp/0.16.22",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/ZXing.SkiaSharp.dll",
+        "lib/net462/ZXing.SkiaSharp.pdb",
+        "lib/net462/ZXing.SkiaSharp.xml",
+        "lib/net6.0/ZXing.SkiaSharp.dll",
+        "lib/net6.0/ZXing.SkiaSharp.pdb",
+        "lib/net6.0/ZXing.SkiaSharp.xml",
+        "lib/net8.0/ZXing.SkiaSharp.dll",
+        "lib/net8.0/ZXing.SkiaSharp.pdb",
+        "lib/net8.0/ZXing.SkiaSharp.xml",
+        "lib/netstandard2.0/ZXing.SkiaSharp.dll",
+        "lib/netstandard2.0/ZXing.SkiaSharp.pdb",
+        "lib/netstandard2.0/ZXing.SkiaSharp.xml",
+        "lib/netstandard2.1/ZXing.SkiaSharp.dll",
+        "lib/netstandard2.1/ZXing.SkiaSharp.pdb",
+        "lib/netstandard2.1/ZXing.SkiaSharp.xml",
+        "logo.jpg",
+        "readme.md",
+        "zxing.net.bindings.skiasharp.0.16.22.nupkg.sha512",
+        "zxing.net.bindings.skiasharp.nuspec"
       ]
     },
     "Kovan.Application/1.0.0": {

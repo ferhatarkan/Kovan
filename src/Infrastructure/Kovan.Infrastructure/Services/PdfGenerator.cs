@@ -3,6 +3,9 @@ using Kovan.Domain.Entities;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
+using SkiaSharp;
+using ZXing;
+using ZXing.Common;
 
 namespace Kovan.Infrastructure.Services;
 
@@ -29,12 +32,32 @@ public class PdfGenerator : IPdfGenerator
                         column.Spacing(2);
                         column.Item().Text(product.Name).SemiBold().FontSize(12);
                         column.Item().Text($"{product.Price:C}").Bold().FontSize(14);
-                        // QuestPDF 2023.12.1 does not provide a built-in Barcode component.
-                        // Keep the SKU visible on the label until a dedicated barcode renderer is added.
+                        column.Item().Height(1, Unit.Centimetre).AlignCenter()
+                            .Image(GenerateCode128Barcode(product.Sku)).FitWidth();
                         column.Item().AlignCenter().Text(product.Sku).FontSize(10);
                     });
             });
         }).GeneratePdf();
+    }
+
+    private static byte[] GenerateCode128Barcode(string sku)
+    {
+        var writer = new ZXing.SkiaSharp.BarcodeWriter
+        {
+            Format = BarcodeFormat.CODE_128,
+            Options = new EncodingOptions
+            {
+                Width = 360,
+                Height = 72,
+                Margin = 0,
+                PureBarcode = true
+            }
+        };
+
+        using var bitmap = writer.Write(sku);
+        using var image = bitmap.Encode(SKEncodedImageFormat.Png, quality: 100);
+
+        return image.ToArray();
     }
 
     public byte[] GenerateInvoicePdf(Kovan.Application.Features.Invoices.Dtos.InvoiceDto invoice, string? logoPath)

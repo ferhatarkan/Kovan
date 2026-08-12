@@ -261,6 +261,10 @@
             "QuestPDF": {
               "target": "Package",
               "version": "[2023.12.1, )"
+            },
+            "ZXing.Net.Bindings.SkiaSharp": {
+              "target": "Package",
+              "version": "[0.16.22, )"
             }
           },
           "imports": [
