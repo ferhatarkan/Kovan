@@ -3,6 +3,7 @@ using Kovan.Application.Common.Interfaces;
 using Kovan.Domain.Common;
 using Kovan.Domain.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore;
 
 namespace Kovan.Infrastructure.Persistence;
@@ -92,5 +93,21 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplica
         }
 
         return await base.SaveChangesAsync(cancellationToken);
+    }
+
+    // IApplicationDbContext'ten gelen transaction metotları
+    public async Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
+    {
+        return await Database.BeginTransactionAsync(cancellationToken);
+    }
+
+    public async Task CommitTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken = default)
+    {
+        await transaction.CommitAsync(cancellationToken);
+    }
+
+    public async Task RollbackTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken = default)
+    {
+        await transaction.RollbackAsync(cancellationToken);
     }
 }

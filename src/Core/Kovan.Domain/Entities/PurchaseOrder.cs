@@ -38,5 +38,14 @@ public class PurchaseOrder : BaseEntity
         _lines.Add(line);
     }
 
+    public void Update(Guid supplierId, DateTime orderDate, string orderNumber)
+    {
+        SupplierId = supplierId;
+        OrderDate = orderDate;
+        OrderNumber = orderNumber;
+    }
+
+    public void ClearLines() => _lines.Clear();
+
     public void Delete() => IsDeleted = true;
 }

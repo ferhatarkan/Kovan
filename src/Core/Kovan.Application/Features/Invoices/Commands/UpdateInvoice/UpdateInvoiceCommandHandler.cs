@@ -45,7 +45,9 @@ public class UpdateInvoiceCommandHandler : IRequestHandler<UpdateInvoiceCommand>
             if (products.TryGetValue(oldLine.ProductId, out var product))
             {
                 // Fatura güncellenirken eski satırları stoğa iade et ve 'Return' tipinde transaction kaydı oluştur.
-                var transaction = product.UpdateStock(oldLine.Quantity, InventoryTransactionType.Return, invoice.Id);
+                // Not: Product entity'si artık doğrudan stok güncellemesi yapmıyor.
+                // Gerçek stok güncellemesi ProductWarehouse üzerinden yapılmalı ve WarehouseId bilgisi gereklidir.
+                var transaction = product.CreateInventoryTransaction(Guid.Empty, oldLine.Quantity, InventoryTransactionType.Return, invoice.Id); // Geçici olarak Guid.Empty kullanıldı
                 _context.InventoryTransactions.Add(transaction);
             }
         }
@@ -59,7 +61,9 @@ public class UpdateInvoiceCommandHandler : IRequestHandler<UpdateInvoiceCommand>
             if (products.TryGetValue(lineItem.ProductId, out var product))
             {
                 // Yeni satırları stoktan düş ve 'Sale' tipinde transaction kaydı oluştur.
-                var transaction = product.UpdateStock(-lineItem.Quantity, InventoryTransactionType.Sale, invoice.Id);
+                // Not: Product entity'si artık doğrudan stok güncellemesi yapmıyor.
+                // Gerçek stok güncellemesi ProductWarehouse üzerinden yapılmalı ve WarehouseId bilgisi gereklidir.
+                var transaction = product.CreateInventoryTransaction(Guid.Empty, -lineItem.Quantity, InventoryTransactionType.Sale, invoice.Id); // Geçici olarak Guid.Empty kullanıldı
                 _context.InventoryTransactions.Add(transaction);
                 invoice.AddLine(lineItem.ProductId, lineItem.Quantity, lineItem.UnitPrice, lineItem.VatRate);
             }

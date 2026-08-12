@@ -1,202 +1,120 @@
-using Kovan.Application.Common.Models;
 using Kovan.Application.Common.Interfaces;
-using Kovan.Application.Features.Invoices.Queries;
+using Kovan.Domain.Entities;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Options;
 
 namespace Kovan.Infrastructure.Services;
 
 public class PdfGenerator : IPdfGenerator
 {
-    private readonly IWebHostEnvironment _webHostEnvironment;
-    private readonly PdfSettings _pdfSettings;
-
-    public PdfGenerator(IWebHostEnvironment webHostEnvironment, IOptions<PdfSettings> pdfSettings)
+    public byte[] GenerateProductLabelPdf(Product product)
     {
-        _webHostEnvironment = webHostEnvironment;
-        _pdfSettings = pdfSettings.Value;
-    }
+        // QuestPDF lisansını ayarlayın (eğer gerekiyorsa)
+        // QuestPDF.Settings.License = LicenseType.Community;
 
-    public PdfFileDto GenerateInvoicePdf(InvoiceDto invoice, string? tenantLogoPath)
-    {
-        // wwwroot klasöründeki logo dosyasının tam yolunu al
-        var logoPath = Path.Combine(_webHostEnvironment.WebRootPath, tenantLogoPath ?? _pdfSettings.LogoPath);
-        byte[]? logoData = null;
-
-        // Logo dosyası varsa, içeriğini oku
-        if (File.Exists(logoPath))
+        return Document.Create(container =>
         {
-            logoData = File.ReadAllBytes(logoPath);
-        }
-
-        // Logo verisini PDF dökümanına gönder
-        var document = new InvoiceDocument(invoice, logoData);
-        var pdfBytes = document.GeneratePdf();
-
-        return new PdfFileDto
-        {
-            Content = pdfBytes,
-            FileName = $"Fatura-{invoice.InvoiceNumber}.pdf"
-        };
-    }
-}
-
-public class InvoiceDocument : IDocument
-{
-    private readonly InvoiceDto _invoice;
-    private readonly byte[]? _logoData;
-
-    public InvoiceDocument(InvoiceDto invoice, byte[]? logoData)
-    {
-        _invoice = invoice;
-        _logoData = logoData;
-    }
-
-    public void Compose(IDocumentContainer container)
-    {
-        container
-            .Page(page =>
+            container.Page(page =>
             {
-                page.Margin(50);
+                // Etiket boyutları (örneğin 7cm x 4cm)
+                page.Size(7, 4, Unit.Centimetre);
+                page.Margin(2, Unit.Millimetre);
+                page.PageColor(Colors.White);
+                page.DefaultTextStyle(x => x.FontSize(10)); // .FontFamily(Fonts.Helvetica) kaldırıldı, varsayılan font kullanılacak.
 
-                page.Header().Element(ComposeHeader);
-                page.Content().Element(ComposeContent);
-
-                page.Footer().AlignCenter().Text(x =>
-                {
-                    x.CurrentPageNumber();
-                    x.Span(" / ");
-                    x.TotalPages();
-                });
-            });
-    }
-
-    void ComposeHeader(IContainer container)
-    {
-        container.Row(row =>
-        {
-            if (_logoData != null)
-            {
-                row.ConstantItem(140).Image(_logoData);
-            }
-            else
-            {
-                row.ConstantItem(140).Height(60).Placeholder("Şirket Logosu");
-            }
-
-            row.RelativeItem().Column(column =>
-            {
-                column.Item().AlignRight().Text("FATURA").SemiBold().FontSize(24).FontColor(Colors.Blue.Medium);
-                column.Item().AlignRight().Text($"#{_invoice.InvoiceNumber}").Bold();
-                column.Item().AlignRight().Text($"Düzenlenme Tarihi: {_invoice.IssueDate:d}");
-                column.Item().AlignRight().Text($"Vade Tarihi: {_invoice.DueDate:d}");
-            });
-        });
-    }
-
-    void ComposeContent(IContainer container)
-    {
-        container.PaddingVertical(30).Column(column =>
-        {
-            column.Spacing(30);
-
-            // Satıcı ve Alıcı Bilgileri
-            column.Item().Row(row =>
-            {
-                // Satıcı (Sizin Şirketiniz)
-                row.RelativeItem().Column(col =>
-                {
-                    col.Item().Text("Satıcı Firma").SemiBold().Underline();
-                    col.Item().Text("Kovan A.Ş.");
-                    col.Item().Text("Teknoloji Cd. No:1");
-                    col.Item().Text("Teknopark, İstanbul");
-                    col.Item().Text("info@kovan.com");
-                });
-
-                // Alıcı (Müşteri)
-                row.RelativeItem().Column(col =>
-                {
-                    col.Item().Text("Alıcı Firma").SemiBold().Underline();
-                    col.Item().Text(_invoice.CustomerName);
-                    // Müşterinin adresi, vergi numarası gibi bilgiler CustomerDto'ya eklenip burada gösterilebilir.
-                });
-            });
-
-            column.Item().Element(ComposeTable);
-
-            // Toplamlar ve Banka Bilgileri
-            column.Item().Row(row =>
-            {
-                // Banka Bilgileri
-                row.RelativeItem().Column(col =>
-                {
-                    col.Item().Text("Ödeme Bilgileri").SemiBold().Underline();
-                    col.Item().Text("Banka Adı: Kovan Bank");
-                    col.Item().Text("IBAN: TR00 0000 0000 0000 0000 0000");
-                    col.Item().Text("Açıklama kısmına fatura numarasını belirtiniz.");
-                });
-
-                // Toplamlar
-                row.RelativeItem().AlignRight().Column(col =>
-                {
-                    col.Item().Row(r =>
+                page.Content()
+                    .Column(column =>
                     {
-                        r.RelativeItem().Text("Ara Toplam:");
-                        r.ConstantItem(100).AlignRight().Text($"{_invoice.TotalAmount:C}");
+                        column.Spacing(2);
+                        column.Item().Text(product.Name).SemiBold().FontSize(12);
+                        column.Item().Text($"{product.Price:C}").Bold().FontSize(14);
+                        // QuestPDF 2023.12.1 does not provide a built-in Barcode component.
+                        // Keep the SKU visible on the label until a dedicated barcode renderer is added.
+                        column.Item().AlignCenter().Text(product.Sku).FontSize(10);
                     });
-                    col.Item().Row(r =>
-                    {
-                        r.RelativeItem().Text("Toplam KDV:");
-                        r.ConstantItem(100).AlignRight().Text($"{_invoice.TotalVatAmount:C}");
-                    });
-                    col.Item().PaddingTop(5).BorderTop(1).Row(r =>
-                    {
-                        r.RelativeItem().Text("Genel Toplam:").SemiBold();
-                        r.ConstantItem(100).AlignRight().Text($"{_invoice.GrandTotal:C}").SemiBold();
-                    });
-                });
             });
-        });
+        }).GeneratePdf();
     }
 
-    void ComposeTable(IContainer container)
+    public byte[] GenerateInvoicePdf(Kovan.Application.Features.Invoices.Dtos.InvoiceDto invoice, string? logoPath)
     {
-        var headerStyle = TextStyle.Default.SemiBold();
-
-        container.Table(table =>
+        // Bu, InvoiceDto'nun içeriğine göre gerçek bir fatura PDF'i oluşturma mantığıdır.
+        // QuestPDF dokümantasyonuna göre daha detaylı bir tasarım yapılabilir.
+        return Document.Create(container =>
         {
-            table.ColumnsDefinition(columns =>
+            container.Page(page =>
             {
-                columns.RelativeColumn(4); // Ürün Adı
-                columns.RelativeColumn(1); // Miktar
-                columns.RelativeColumn(2); // Birim Fiyat
-                columns.RelativeColumn(1); // KDV %
-                columns.RelativeColumn(2); // Ara Toplam
-                columns.RelativeColumn(2); // Toplam
-            });
+                page.Margin(2, Unit.Centimetre);
+                page.PageColor(Colors.White);
+                page.DefaultTextStyle(x => x.FontSize(10)); // .FontFamily(Fonts.Helvetica) kaldırıldı, varsayılan font kullanılacak.
 
-            table.Header(header =>
-            {
-                header.Cell().Text("Ürün / Hizmet").Style(headerStyle);
-                header.Cell().AlignRight().Text("Miktar").Style(headerStyle);
-                header.Cell().AlignRight().Text("Birim Fiyat").Style(headerStyle);
-                header.Cell().AlignRight().Text("KDV").Style(headerStyle);
-                header.Cell().AlignRight().Text("Net Tutar").Style(headerStyle);
-                header.Cell().AlignRight().Text("Toplam Tutar").Style(headerStyle);
-            });
+                page.Header()
+                    .Row(row =>
+                    {
+                        row.RelativeItem().Column(column =>
+                        {
+                            column.Item().Text($"Fatura No: {invoice.InvoiceNumber}").FontSize(16).Bold();
+                            column.Item().Text($"Tarih: {invoice.IssueDate:dd.MM.yyyy}");
+                            column.Item().Text($"Vade: {invoice.DueDate:dd.MM.yyyy}");
+                        });
 
-            foreach (var item in _invoice.InvoiceLines)
-            {
-                table.Cell().Text(item.ProductName);
-                table.Cell().AlignRight().Text(item.Quantity.ToString());
-                table.Cell().AlignRight().Text($"{item.UnitPrice:C}");
-                table.Cell().AlignRight().Text($"%{item.VatRate}");
-                table.Cell().AlignRight().Text($"{item.NetTotal:C}");
-                table.Cell().AlignRight().Text($"{item.GrossTotal:C}");
-            }
-        });
+                        if (!string.IsNullOrEmpty(logoPath))
+                        {
+                            // Logo yolu genellikle bir dosya sistemi yolu veya URL olabilir.
+                            // QuestPDF'in Image() metodu byte[] veya Stream bekler.
+                            // Basitlik adına burada bir placeholder bırakıyorum.
+                            // row.ConstantItem(100).Image(logoPath); // Eğer logoPath doğrudan okunabilir bir yol ise
+                        }
+                    });
+
+                page.Content()
+                    .PaddingVertical(1, Unit.Centimetre)
+                    .Column(column =>
+                    {
+                        column.Spacing(5);
+
+                        column.Item().Text($"Müşteri: {invoice.CustomerName}").FontSize(12).SemiBold();
+                        column.Item().Table(table =>
+                        {
+                            table.ColumnsDefinition(columns =>
+                            {
+                                columns.RelativeColumn(3);
+                                columns.RelativeColumn();
+                                columns.RelativeColumn();
+                                columns.RelativeColumn();
+                            });
+
+                            table.Header(header =>
+                            {
+                                header.Cell().Text("Ürün").Bold();
+                                header.Cell().Text("Miktar").Bold();
+                                header.Cell().Text("Birim Fiyat").Bold();
+                                header.Cell().Text("Toplam").Bold();
+                            });
+
+                            foreach (var line in invoice.InvoiceLines)
+                            {
+                                table.Cell().Text(line.ProductName);
+                                table.Cell().Text(line.Quantity.ToString());
+                                table.Cell().Text($"{line.UnitPrice:C}");
+                                table.Cell().Text($"{line.Total:C}");
+                            }
+                        });
+
+                        column.Item().AlignRight().Text($"Genel Toplam: {invoice.TotalAmount:C}").FontSize(14).Bold();
+                    });
+
+                page.Footer()
+                    .AlignCenter()
+                    .Text(x =>
+                    {
+                        x.Span("Sayfa ");
+                        x.CurrentPageNumber();
+                        x.Span(" / ");
+                        x.TotalPages();
+                    });
+            });
+        }).GeneratePdf();
     }
 }

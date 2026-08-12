@@ -1,8 +1,9 @@
+using Kovan.Application.Common.Interfaces;
 using MediatR;
 
 namespace Kovan.Application.Features.PurchaseOrders.Commands.CreatePurchaseOrder;
 
-public class CreatePurchaseOrderCommand : IRequest<Guid>
+public class CreatePurchaseOrderCommand : IRequest<Guid>, ITransactionalRequest
 {
     public Guid SupplierId { get; set; }
     public DateTime OrderDate { get; set; }

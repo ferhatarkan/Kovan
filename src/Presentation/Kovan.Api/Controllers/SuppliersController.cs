@@ -2,6 +2,7 @@ using Kovan.Application.Features.Suppliers.Commands.CreateSupplier;
 using Kovan.Application.Features.Suppliers.Commands.DeleteSupplier;
 using Kovan.Application.Features.Suppliers.Commands.UpdateSupplier;
 using Kovan.Application.Features.Suppliers.Queries.GetSuppliers;
+using Kovan.Application.Features.Suppliers.Queries.GetSupplierById;
 using Kovan.Application.Features.Suppliers.Queries;
 using MediatR;
 using Kovan.Domain.Constants;

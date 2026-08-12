@@ -15,13 +15,13 @@ public class CreatePurchaseOrderCommandValidator : AbstractValidator<CreatePurch
         RuleFor(v => v.Lines)
             .NotEmpty().WithMessage("Sipariş en az bir satır içermelidir.");
 
-        RuleForEach(v => v.Lines).SetValidator(new CreatePurchaseOrderLineDtoValidator());
+        RuleForEach(v => v.Lines).SetValidator(new LineItemDtoValidator());
     }
 }
 
-public class CreatePurchaseOrderLineDtoValidator : AbstractValidator<CreatePurchaseOrderLineDto>
+public class LineItemDtoValidator : AbstractValidator<CreatePurchaseOrderCommand.LineItemDto> // Sınıf adı ile constructor adı aynı olmalı
 {
-    public CreatePurchaseOrderLineDtoValidator()
+    public LineItemDtoValidator() // Constructor adı düzeltildi
     {
         RuleFor(l => l.ProductId).NotEmpty();
         RuleFor(l => l.Quantity).GreaterThan(0);

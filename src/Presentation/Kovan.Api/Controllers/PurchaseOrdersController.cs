@@ -2,7 +2,6 @@ using Kovan.Application.Features.PurchaseOrders.Commands.CreatePurchaseOrder;
 using Kovan.Application.Features.PurchaseOrders.Commands.UpdatePurchaseOrder;
 using Kovan.Application.Features.PurchaseOrders.Commands.DeletePurchaseOrder;
 using Kovan.Application.Features.PurchaseOrders.Queries.GetPurchaseOrderById;
-using Kovan.Application.Features.PurchaseOrders.Queries.GetPurchaseOrders;
 using Kovan.Application.Features.PurchaseOrders.Queries.GetPaginatedPurchaseOrders; // Bu yeni sorgu eklenmeli
 using Kovan.Domain.Constants;
 using MediatR;

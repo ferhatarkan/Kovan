@@ -29,7 +29,7 @@ public static class DependencyInjection
         services.AddTransient<ITokenService, TokenService>();
         services.AddTransient<IEmailService, EmailService>();
         services.AddTransient<IFileStorageService, FileStorageService>();
-        services.AddTransient<IPdfGenerator, PdfGenerator>();
+        services.AddScoped<IPdfGenerator, PdfGenerator>();
 
         // Arka plan servisleri
         services.AddHostedService<UpdateOverdueInvoicesService>();

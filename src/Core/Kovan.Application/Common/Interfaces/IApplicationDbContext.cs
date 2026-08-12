@@ -1,6 +1,7 @@
 ﻿using Kovan.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 namespace Kovan.Application.Common.Interfaces;
 
 public interface IApplicationDbContext
@@ -16,6 +17,13 @@ public interface IApplicationDbContext
     DbSet<Supplier> Suppliers { get; }
     DbSet<PurchaseOrder> PurchaseOrders { get; }
     DbSet<PurchaseOrderLine> PurchaseOrderLines { get; }
+    DbSet<Warehouse> Warehouses { get; }
+    DbSet<ProductWarehouse> ProductWarehouses { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+
+    DatabaseFacade Database { get; }
+    Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default);
+    Task CommitTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken = default);
+    Task RollbackTransactionAsync(IDbContextTransaction transaction, CancellationToken cancellationToken = default);
 }

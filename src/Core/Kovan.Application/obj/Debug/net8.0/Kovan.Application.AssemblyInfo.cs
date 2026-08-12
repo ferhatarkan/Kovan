@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kovan.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9cdf446134afebdb162b1638d62612aa84c33ee3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kovan.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kovan.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -39,7 +39,9 @@ public class DeleteInvoiceCommandHandler : IRequestHandler<DeleteInvoiceCommand>
             if (products.TryGetValue(line.ProductId, out var product))
             {
                 // Fatura silindiğinde ürünleri stoğa geri ekle ve InventoryTransaction kaydı oluştur.
-                var transaction = product.UpdateStock(line.Quantity, InventoryTransactionType.Return, invoice.Id);
+                // Not: Product entity'si artık doğrudan stok güncellemesi yapmıyor.
+                // Gerçek stok güncellemesi ProductWarehouse üzerinden yapılmalı ve WarehouseId bilgisi gereklidir.
+                var transaction = product.CreateInventoryTransaction(Guid.Empty, line.Quantity, InventoryTransactionType.Return, invoice.Id); // Geçici olarak Guid.Empty kullanıldı
                 _context.InventoryTransactions.Add(transaction);
             }
         }

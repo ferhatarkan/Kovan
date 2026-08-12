@@ -8,6 +8,7 @@
 /Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Application.AssemblyInfoInputs.cache
 /Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Application.AssemblyInfo.cs
 /Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Application.csproj.CoreCompileInputs.cache
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Application.sourcelink.json
 /Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Ap.EBCF1F05.Up2Date
 /Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/Kovan.Application.dll
 /Users/ferhatarkan/Kovan/src/Core/Kovan.Application/obj/Debug/net8.0/refint/Kovan.Application.dll

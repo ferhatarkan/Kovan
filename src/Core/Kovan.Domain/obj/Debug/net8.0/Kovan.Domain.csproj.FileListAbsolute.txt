@@ -6,6 +6,7 @@
 /Users/ferhatarkan/Kovan/src/Core/Kovan.Domain/obj/Debug/net8.0/Kovan.Domain.AssemblyInfoInputs.cache
 /Users/ferhatarkan/Kovan/src/Core/Kovan.Domain/obj/Debug/net8.0/Kovan.Domain.AssemblyInfo.cs
 /Users/ferhatarkan/Kovan/src/Core/Kovan.Domain/obj/Debug/net8.0/Kovan.Domain.csproj.CoreCompileInputs.cache
+/Users/ferhatarkan/Kovan/src/Core/Kovan.Domain/obj/Debug/net8.0/Kovan.Domain.sourcelink.json
 /Users/ferhatarkan/Kovan/src/Core/Kovan.Domain/obj/Debug/net8.0/Kovan.Domain.dll
 /Users/ferhatarkan/Kovan/src/Core/Kovan.Domain/obj/Debug/net8.0/refint/Kovan.Domain.dll
 /Users/ferhatarkan/Kovan/src/Core/Kovan.Domain/obj/Debug/net8.0/Kovan.Domain.pdb

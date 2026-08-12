@@ -30,8 +30,8 @@ public class GetPaginatedPurchaseOrdersQueryHandler : IRequestHandler<GetPaginat
         if (!string.IsNullOrWhiteSpace(request.SearchTerm))
         {
             var searchTerm = $"%{request.SearchTerm.ToLower()}%";
-            query = query.Where(po => EF.Functions.Like(po.OrderNumber.ToLower(), searchTerm) ||
-                                      EF.Functions.Like(po.Supplier.Name.ToLower(), searchTerm));
+            query = query.Where(po => EF.Functions.Like(po.OrderNumber.ToLower(), searchTerm) || // OrderNumber'a göre arama
+                                      EF.Functions.Like((po.Supplier != null ? po.Supplier.Name : string.Empty).ToLower(), searchTerm)); // Supplier adı null olabilir
         }
 
         return await query

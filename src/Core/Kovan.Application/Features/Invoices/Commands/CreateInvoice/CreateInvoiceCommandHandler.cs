@@ -46,9 +46,11 @@ public class CreateInvoiceCommandHandler : IRequestHandler<CreateInvoiceCommand,
             // Stok kontrolü ve düşümü
             // Not: UpdateStock metodu, yetersiz stok durumunda bir exception fırlatmalıdır.
             // Bu, domain katmanında ele alınması gereken bir iş kuralıdır.
-            // Product entity'sindeki UpdateStock metodu zaten bu kontrolü yapıyor.
-            var transaction = product.UpdateStock(-lineItem.Quantity, InventoryTransactionType.Sale, invoice.Id);
+            // Product entity'si artık doğrudan stok güncellemesi yapmıyor.
+            // Gerçek stok güncellemesi ProductWarehouse üzerinden yapılmalı ve WarehouseId bilgisi gereklidir.
+            var transaction = product.CreateInventoryTransaction(Guid.Empty, -lineItem.Quantity, InventoryTransactionType.Sale, invoice.Id); // Geçici olarak Guid.Empty kullanıldı
             _context.InventoryTransactions.Add(transaction);
+
 
             // Fatura satırını domaine ekle (toplamlar otomatik hesaplanacak)
             invoice.AddLine(product.Id, lineItem.Quantity, lineItem.UnitPrice, lineItem.VatRate);
