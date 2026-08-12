@@ -4,6 +4,7 @@ using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using SkiaSharp;
+using System.Runtime.InteropServices;
 using ZXing;
 using ZXing.Common;
 
@@ -42,7 +43,7 @@ public class PdfGenerator : IPdfGenerator
 
     private static byte[] GenerateCode128Barcode(string sku)
     {
-        var writer = new ZXing.SkiaSharp.BarcodeWriter
+        var writer = new BarcodeWriterPixelData
         {
             Format = BarcodeFormat.CODE_128,
             Options = new EncodingOptions
@@ -54,10 +55,13 @@ public class PdfGenerator : IPdfGenerator
             }
         };
 
-        using var bitmap = writer.Write(sku);
-        using var image = bitmap.Encode(SKEncodedImageFormat.Png, quality: 100);
+        var pixelData = writer.Write(sku);
+        using var bitmap = new SKBitmap(new SKImageInfo(pixelData.Width, pixelData.Height, SKColorType.Bgra8888, SKAlphaType.Premul));
+        Marshal.Copy(pixelData.Pixels, 0, bitmap.GetPixels(), pixelData.Pixels.Length);
+        using var image = SKImage.FromBitmap(bitmap);
+        using var encodedImage = image.Encode(SKEncodedImageFormat.Png, quality: 100);
 
-        return image.ToArray();
+        return encodedImage.ToArray();
     }
 
     public byte[] GenerateInvoicePdf(Kovan.Application.Features.Invoices.Dtos.InvoiceDto invoice, string? logoPath)

@@ -6,7 +6,7 @@ using Kovan.Application.Common.Interfaces;
 namespace Kovan.Application.Common.Behaviours;
 
 public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : ITransactionalRequest // Sadece ITransactionalRequest uygulayan isteklere uygulanır
+    where TRequest : notnull
 {
     private readonly IApplicationDbContext _dbContext;
     private readonly ILogger<TransactionBehavior<TRequest, TResponse>> _logger;
@@ -19,6 +19,9 @@ public class TransactionBehavior<TRequest, TResponse> : IPipelineBehavior<TReque
 
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
+        if (request is not ITransactionalRequest)
+            return await next();
+
         var requestName = typeof(TRequest).Name;
         _logger.LogInformation("Kovan TransactionBehavior: Handling transaction for {RequestName}", requestName);
 

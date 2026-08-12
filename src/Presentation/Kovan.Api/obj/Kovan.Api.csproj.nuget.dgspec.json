@@ -214,9 +214,6 @@
           }
         },
         "warningProperties": {
-          "noWarn": [
-            "NU1902"
-          ],
           "warnAsError": [
             "NU1605"
           ]
@@ -234,7 +231,7 @@
           "dependencies": {
             "MailKit": {
               "target": "Package",
-              "version": "[4.7.1.1, )"
+              "version": "[4.17.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -262,9 +259,9 @@
               "target": "Package",
               "version": "[2023.12.1, )"
             },
-            "ZXing.Net.Bindings.SkiaSharp": {
+            "ZXing.Net": {
               "target": "Package",
-              "version": "[0.16.22, )"
+              "version": "[0.16.11, )"
             }
           },
           "imports": [

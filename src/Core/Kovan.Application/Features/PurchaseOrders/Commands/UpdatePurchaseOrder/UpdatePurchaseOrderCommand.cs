@@ -2,7 +2,7 @@ using MediatR;
 
 namespace Kovan.Application.Features.PurchaseOrders.Commands.UpdatePurchaseOrder;
 
-public class UpdatePurchaseOrderCommand : IRequest
+public class UpdatePurchaseOrderCommand : IRequest, Kovan.Application.Common.Interfaces.ITransactionalRequest
 {
     public Guid Id { get; set; }
     public Guid SupplierId { get; set; }

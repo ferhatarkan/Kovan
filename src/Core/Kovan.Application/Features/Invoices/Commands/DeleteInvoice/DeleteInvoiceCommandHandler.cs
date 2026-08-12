@@ -33,17 +33,23 @@ public class DeleteInvoiceCommandHandler : IRequestHandler<DeleteInvoiceCommand>
         var products = await _context.Products
             .Where(p => productIds.Contains(p.Id))
             .ToDictionaryAsync(p => p.Id, cancellationToken);
+        var stockByProductId = await _context.ProductWarehouses
+            .Where(x => x.WarehouseId == invoice.WarehouseId && productIds.Contains(x.ProductId))
+            .ToDictionaryAsync(x => x.ProductId, cancellationToken);
 
         foreach (var line in invoice.InvoiceLines)
         {
-            if (products.TryGetValue(line.ProductId, out var product))
+            if (products.TryGetValue(line.ProductId, out var product) && stockByProductId.TryGetValue(line.ProductId, out var productWarehouse))
             {
                 // Fatura silindiğinde ürünleri stoğa geri ekle ve InventoryTransaction kaydı oluştur.
                 // Not: Product entity'si artık doğrudan stok güncellemesi yapmıyor.
                 // Gerçek stok güncellemesi ProductWarehouse üzerinden yapılmalı ve WarehouseId bilgisi gereklidir.
-                var transaction = product.CreateInventoryTransaction(Guid.Empty, line.Quantity, InventoryTransactionType.Return, invoice.Id); // Geçici olarak Guid.Empty kullanıldı
+                productWarehouse.AdjustStock(line.Quantity);
+                var transaction = product.CreateInventoryTransaction(invoice.WarehouseId, line.Quantity, InventoryTransactionType.Return, invoice.Id);
                 _context.InventoryTransactions.Add(transaction);
             }
+            else
+                throw new NotFoundException(nameof(ProductWarehouse), line.ProductId);
         }
 
         invoice.Delete(); // Domain'deki metodu çağırarak soft delete yap.

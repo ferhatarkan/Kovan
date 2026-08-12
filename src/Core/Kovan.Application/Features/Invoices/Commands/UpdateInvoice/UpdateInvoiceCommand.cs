@@ -2,7 +2,7 @@ using MediatR;
 
 namespace Kovan.Application.Features.Invoices.Commands.UpdateInvoice;
 
-public class UpdateInvoiceCommand : IRequest
+public class UpdateInvoiceCommand : IRequest, Kovan.Application.Common.Interfaces.ITransactionalRequest
 {
     public Guid Id { get; set; }
     public string InvoiceNumber { get; set; } = string.Empty;

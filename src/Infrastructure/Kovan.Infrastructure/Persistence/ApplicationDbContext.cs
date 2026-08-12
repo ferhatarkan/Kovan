@@ -12,6 +12,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplica
 {
     private readonly ICurrentUserService _currentUserService;
     private readonly IDateTime _dateTime;
+    private Guid? CurrentTenantId => Guid.TryParse(_currentUserService.TenantId, out var tenantId) ? tenantId : null;
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ICurrentUserService currentUserService, IDateTime dateTime) : base(options)
     {
@@ -41,19 +42,18 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplica
         // Çoklu kiracı (multi-tenancy) için global query filter'ları ayarla
         // ICurrentUserService'ten TenantId'yi al. Arka plan servisleri gibi
         // bir istek bağlamı olmadığında null olabilir. Bu durumda filtre uygulanmaz.
-        var tenantIdString = _currentUserService.TenantId;
-        builder.Entity<Product>().HasQueryFilter(e => !e.IsDeleted && (tenantIdString == null || e.TenantId == Guid.Parse(tenantIdString)));
-        builder.Entity<Customer>().HasQueryFilter(e => !e.IsDeleted && (tenantIdString == null || e.TenantId == Guid.Parse(tenantIdString)));
-        builder.Entity<Invoice>().HasQueryFilter(e => !e.IsDeleted && (tenantIdString == null || e.TenantId == Guid.Parse(tenantIdString)));
-        builder.Entity<InvoiceLine>().HasQueryFilter(e => !e.IsDeleted && (tenantIdString == null || e.TenantId == Guid.Parse(tenantIdString)));
-        builder.Entity<Payment>().HasQueryFilter(p => !p.IsDeleted && (tenantIdString == null || p.TenantId == Guid.Parse(tenantIdString)) && (p.Invoice == null || !p.Invoice.IsDeleted)); // Invoice'un da silinmemiş olduğundan emin ol
-        builder.Entity<Supplier>().HasQueryFilter(e => !e.IsDeleted && (tenantIdString == null || e.TenantId == Guid.Parse(tenantIdString)));
-        builder.Entity<PurchaseOrder>().HasQueryFilter(e => !e.IsDeleted && (tenantIdString == null || e.TenantId == Guid.Parse(tenantIdString)));
-        builder.Entity<PurchaseOrderLine>().HasQueryFilter(e => !e.IsDeleted && (tenantIdString == null || e.TenantId == Guid.Parse(tenantIdString)));
-        builder.Entity<InventoryTransaction>().HasQueryFilter(e => !e.IsDeleted && (tenantIdString == null || e.TenantId == Guid.Parse(tenantIdString)));
-        builder.Entity<Warehouse>().HasQueryFilter(e => !e.IsDeleted && (tenantIdString == null || e.TenantId == Guid.Parse(tenantIdString))); // Yeni
-        builder.Entity<ProductWarehouse>().HasQueryFilter(e => !e.IsDeleted && (tenantIdString == null || e.TenantId == Guid.Parse(tenantIdString))); // Yeni
-        builder.Entity<UserInvitation>().HasQueryFilter(e => tenantIdString == null || e.TenantId == Guid.Parse(tenantIdString));
+        builder.Entity<Product>().HasQueryFilter(e => !e.IsDeleted && (CurrentTenantId == null || e.TenantId == CurrentTenantId));
+        builder.Entity<Customer>().HasQueryFilter(e => !e.IsDeleted && (CurrentTenantId == null || e.TenantId == CurrentTenantId));
+        builder.Entity<Invoice>().HasQueryFilter(e => !e.IsDeleted && (CurrentTenantId == null || e.TenantId == CurrentTenantId));
+        builder.Entity<InvoiceLine>().HasQueryFilter(e => !e.IsDeleted && (CurrentTenantId == null || e.TenantId == CurrentTenantId));
+        builder.Entity<Payment>().HasQueryFilter(p => !p.IsDeleted && (CurrentTenantId == null || p.TenantId == CurrentTenantId) && (p.Invoice == null || !p.Invoice.IsDeleted));
+        builder.Entity<Supplier>().HasQueryFilter(e => !e.IsDeleted && (CurrentTenantId == null || e.TenantId == CurrentTenantId));
+        builder.Entity<PurchaseOrder>().HasQueryFilter(e => !e.IsDeleted && (CurrentTenantId == null || e.TenantId == CurrentTenantId));
+        builder.Entity<PurchaseOrderLine>().HasQueryFilter(e => !e.IsDeleted && (CurrentTenantId == null || e.TenantId == CurrentTenantId));
+        builder.Entity<InventoryTransaction>().HasQueryFilter(e => !e.IsDeleted && (CurrentTenantId == null || e.TenantId == CurrentTenantId));
+        builder.Entity<Warehouse>().HasQueryFilter(e => !e.IsDeleted && (CurrentTenantId == null || e.TenantId == CurrentTenantId));
+        builder.Entity<ProductWarehouse>().HasQueryFilter(e => !e.IsDeleted && (CurrentTenantId == null || e.TenantId == CurrentTenantId));
+        builder.Entity<UserInvitation>().HasQueryFilter(e => !e.IsDeleted && (CurrentTenantId == null || e.TenantId == CurrentTenantId));
     }
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

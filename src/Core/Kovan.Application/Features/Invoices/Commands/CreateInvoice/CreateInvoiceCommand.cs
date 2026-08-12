@@ -2,9 +2,10 @@ using MediatR;
 
 namespace Kovan.Application.Features.Invoices.Commands.CreateInvoice;
 
-public class CreateInvoiceCommand : IRequest<Guid>
+public class CreateInvoiceCommand : IRequest<Guid>, Kovan.Application.Common.Interfaces.ITransactionalRequest
 {
     public Guid CustomerId { get; init; }
+    public Guid WarehouseId { get; init; }
     public string InvoiceNumber { get; init; } = string.Empty;
     public DateTime DueDate { get; init; }
     public List<InvoiceLineItem> Lines { get; init; } = new();

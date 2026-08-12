@@ -18,6 +18,10 @@ public class CreatePurchaseOrderCommandHandler : IRequestHandler<CreatePurchaseO
 
     public async Task<Guid> Handle(CreatePurchaseOrderCommand request, CancellationToken cancellationToken)
     {
+        var supplierExists = await _context.Suppliers.AnyAsync(x => x.Id == request.SupplierId, cancellationToken);
+        if (!supplierExists)
+            throw new NotFoundException(nameof(Supplier), request.SupplierId);
+
         // 1. Satın alma siparişini oluştur
         var purchaseOrder = PurchaseOrder.Create(request.SupplierId, request.OrderDate, request.OrderNumber);
 

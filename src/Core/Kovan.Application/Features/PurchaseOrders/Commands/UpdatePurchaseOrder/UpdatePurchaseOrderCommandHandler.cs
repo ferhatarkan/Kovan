@@ -23,6 +23,10 @@ public class UpdatePurchaseOrderCommandHandler : IRequestHandler<UpdatePurchaseO
             ?? throw new NotFoundException(nameof(PurchaseOrder), request.Id);
 
         var productIds = request.Lines.Select(x => x.ProductId).Distinct().ToList();
+        var supplierExists = await _context.Suppliers.AnyAsync(x => x.Id == request.SupplierId, cancellationToken);
+        if (!supplierExists)
+            throw new NotFoundException(nameof(Supplier), request.SupplierId);
+
         var existingProductIds = await _context.Products
             .Where(x => productIds.Contains(x.Id))
             .Select(x => x.Id)

@@ -38,17 +38,25 @@ public class UpdateInvoiceCommandHandler : IRequestHandler<UpdateInvoiceCommand>
         var products = await _context.Products
             .Where(p => productIdsToUpdate.Contains(p.Id))
             .ToDictionaryAsync(p => p.Id, cancellationToken);
+        var stockByProductId = await _context.ProductWarehouses
+            .Where(x => x.WarehouseId == invoice.WarehouseId && productIdsToUpdate.Contains(x.ProductId))
+            .ToDictionaryAsync(x => x.ProductId, cancellationToken);
 
         // 2. Eski satırlardaki ürünleri stoğa geri ekle.
         foreach (var oldLine in oldLineItems)
         {
-            if (products.TryGetValue(oldLine.ProductId, out var product))
+            if (products.TryGetValue(oldLine.ProductId, out var product) && stockByProductId.TryGetValue(oldLine.ProductId, out var productWarehouse))
             {
                 // Fatura güncellenirken eski satırları stoğa iade et ve 'Return' tipinde transaction kaydı oluştur.
                 // Not: Product entity'si artık doğrudan stok güncellemesi yapmıyor.
                 // Gerçek stok güncellemesi ProductWarehouse üzerinden yapılmalı ve WarehouseId bilgisi gereklidir.
-                var transaction = product.CreateInventoryTransaction(Guid.Empty, oldLine.Quantity, InventoryTransactionType.Return, invoice.Id); // Geçici olarak Guid.Empty kullanıldı
+                productWarehouse.AdjustStock(oldLine.Quantity);
+                var transaction = product.CreateInventoryTransaction(invoice.WarehouseId, oldLine.Quantity, InventoryTransactionType.Return, invoice.Id);
                 _context.InventoryTransactions.Add(transaction);
+            }
+            else
+            {
+                throw new NotFoundException(nameof(ProductWarehouse), oldLine.ProductId);
             }
         }
 
@@ -58,19 +66,20 @@ public class UpdateInvoiceCommandHandler : IRequestHandler<UpdateInvoiceCommand>
         foreach (var lineItem in request.Lines)
         {
             // 3. Yeni satırlardaki ürünleri stoktan düş.
-            if (products.TryGetValue(lineItem.ProductId, out var product))
+            if (products.TryGetValue(lineItem.ProductId, out var product) && stockByProductId.TryGetValue(lineItem.ProductId, out var productWarehouse))
             {
                 // Yeni satırları stoktan düş ve 'Sale' tipinde transaction kaydı oluştur.
                 // Not: Product entity'si artık doğrudan stok güncellemesi yapmıyor.
                 // Gerçek stok güncellemesi ProductWarehouse üzerinden yapılmalı ve WarehouseId bilgisi gereklidir.
-                var transaction = product.CreateInventoryTransaction(Guid.Empty, -lineItem.Quantity, InventoryTransactionType.Sale, invoice.Id); // Geçici olarak Guid.Empty kullanıldı
+                productWarehouse.AdjustStock(-lineItem.Quantity);
+                var transaction = product.CreateInventoryTransaction(invoice.WarehouseId, -lineItem.Quantity, InventoryTransactionType.Sale, invoice.Id);
                 _context.InventoryTransactions.Add(transaction);
                 invoice.AddLine(lineItem.ProductId, lineItem.Quantity, lineItem.UnitPrice, lineItem.VatRate);
             }
             else
             {
                 // Bu durum, validator'dan geçmemesi gereken bir durumu yakalar.
-                throw new NotFoundException(nameof(Product), lineItem.ProductId);
+                throw new NotFoundException(nameof(ProductWarehouse), lineItem.ProductId);
             }
         }
 

@@ -7,6 +7,7 @@ public class Invoice : BaseEntity
 {
     public string InvoiceNumber { get; private set; } = string.Empty;
     public Guid CustomerId { get; private set; }
+    public Guid WarehouseId { get; private set; }
     public Customer? Customer { get; private set; }
     public DateTime IssueDate { get; private set; }
     public DateTime DueDate { get; private set; }
@@ -25,16 +26,18 @@ public class Invoice : BaseEntity
 
     private Invoice() { } // For EF Core
 
-    public static Invoice Create(Guid customerId, string invoiceNumber, DateTime dueDate)
+    public static Invoice Create(Guid customerId, Guid warehouseId, string invoiceNumber, DateTime dueDate)
     {
         // Basic validation
         if (customerId == Guid.Empty) throw new ArgumentException("Customer is required.");
+        if (warehouseId == Guid.Empty) throw new ArgumentException("Warehouse is required.");
         if (string.IsNullOrWhiteSpace(invoiceNumber)) throw new ArgumentException("Invoice number is required.");
 
         return new Invoice
         {
             Id = Guid.NewGuid(),
             CustomerId = customerId,
+            WarehouseId = warehouseId,
             InvoiceNumber = invoiceNumber,
             IssueDate = DateTime.UtcNow,
             DueDate = dueDate,

@@ -168,4 +168,3 @@
 /Users/ferhatarkan/Kovan/src/Presentation/Kovan.Api/obj/Debug/net8.0/Kovan.Api.genruntimeconfig.cache
 /Users/ferhatarkan/Kovan/src/Presentation/Kovan.Api/obj/Debug/net8.0/ref/Kovan.Api.dll
 /Users/ferhatarkan/Kovan/src/Presentation/Kovan.Api/bin/Debug/net8.0/zxing.dll
-/Users/ferhatarkan/Kovan/src/Presentation/Kovan.Api/bin/Debug/net8.0/ZXing.SkiaSharp.dll

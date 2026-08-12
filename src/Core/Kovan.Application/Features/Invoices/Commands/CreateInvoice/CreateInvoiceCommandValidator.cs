@@ -7,6 +7,7 @@ public class CreateInvoiceCommandValidator : AbstractValidator<CreateInvoiceComm
     public CreateInvoiceCommandValidator()
     {
         RuleFor(v => v.CustomerId).NotEmpty();
+        RuleFor(v => v.WarehouseId).NotEmpty();
         RuleFor(v => v.InvoiceNumber).NotEmpty().MaximumLength(50);
         RuleFor(v => v.Lines).NotEmpty().WithMessage("Fatura en az bir satır içermelidir.");
 

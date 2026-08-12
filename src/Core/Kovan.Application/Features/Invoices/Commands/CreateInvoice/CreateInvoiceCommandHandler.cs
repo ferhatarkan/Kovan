@@ -25,14 +25,21 @@ public class CreateInvoiceCommandHandler : IRequestHandler<CreateInvoiceCommand,
             throw new NotFoundException(nameof(Customer), request.CustomerId);
         }
 
+        var warehouseExists = await _context.Warehouses.AnyAsync(w => w.Id == request.WarehouseId, cancellationToken);
+        if (!warehouseExists)
+            throw new NotFoundException(nameof(Warehouse), request.WarehouseId);
+
         // 2. Fatura başlığını oluştur
-        var invoice = Invoice.Create(request.CustomerId, request.InvoiceNumber, request.DueDate);
+        var invoice = Invoice.Create(request.CustomerId, request.WarehouseId, request.InvoiceNumber, request.DueDate);
 
         // 3. Performans iyileştirmesi: Gerekli tüm ürünleri tek bir sorgu ile çek.
         var productIds = request.Lines.Select(l => l.ProductId).Distinct().ToList();
         var products = await _context.Products
             .Where(p => productIds.Contains(p.Id))
             .ToDictionaryAsync(p => p.Id, p => p, cancellationToken);
+        var stockByProductId = await _context.ProductWarehouses
+            .Where(x => x.WarehouseId == request.WarehouseId && productIds.Contains(x.ProductId))
+            .ToDictionaryAsync(x => x.ProductId, cancellationToken);
 
         // 4. Fatura satırlarını işle
         foreach (var lineItem in request.Lines)
@@ -43,12 +50,16 @@ public class CreateInvoiceCommandHandler : IRequestHandler<CreateInvoiceCommand,
                 throw new NotFoundException(nameof(Product), lineItem.ProductId);
             }
 
+            if (!stockByProductId.TryGetValue(lineItem.ProductId, out var productWarehouse))
+                throw new NotFoundException(nameof(ProductWarehouse), lineItem.ProductId);
+
             // Stok kontrolü ve düşümü
             // Not: UpdateStock metodu, yetersiz stok durumunda bir exception fırlatmalıdır.
             // Bu, domain katmanında ele alınması gereken bir iş kuralıdır.
             // Product entity'si artık doğrudan stok güncellemesi yapmıyor.
             // Gerçek stok güncellemesi ProductWarehouse üzerinden yapılmalı ve WarehouseId bilgisi gereklidir.
-            var transaction = product.CreateInventoryTransaction(Guid.Empty, -lineItem.Quantity, InventoryTransactionType.Sale, invoice.Id); // Geçici olarak Guid.Empty kullanıldı
+            productWarehouse.AdjustStock(-lineItem.Quantity);
+            var transaction = product.CreateInventoryTransaction(request.WarehouseId, -lineItem.Quantity, InventoryTransactionType.Sale, invoice.Id);
             _context.InventoryTransactions.Add(transaction);
 
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kovan.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b33e4c57d859b45490cc081ffcde4b851f450933")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a2955a8495b6725292d559b715403d4a4baa783")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kovan.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kovan.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
