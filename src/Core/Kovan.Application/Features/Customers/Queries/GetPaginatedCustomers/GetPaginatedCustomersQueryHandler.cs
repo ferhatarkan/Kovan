@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Kovan.Application.Features.Customers.Queries.GetPaginatedCustomers;
 
-public class GetPaginatedCustomersQueryHandler : IRequestHandler<GetPaginatedCustomersQuery, PaginatedList<CustomerDto>>
+public class GetPaginatedCustomersQueryHandler : IRequestHandler<GetPaginatedCustomersQuery, PaginatedList<GetPaginatedCustomersResult>>
 {
     private readonly IApplicationDbContext _context;
     private readonly IMapper _mapper;
@@ -18,11 +18,11 @@ public class GetPaginatedCustomersQueryHandler : IRequestHandler<GetPaginatedCus
         _mapper = mapper;
     }
 
-    public async Task<PaginatedList<CustomerDto>> Handle(GetPaginatedCustomersQuery request, CancellationToken cancellationToken)
+    public async Task<PaginatedList<GetPaginatedCustomersResult>> Handle(GetPaginatedCustomersQuery request, CancellationToken cancellationToken)
     {
-        return await PaginatedList<CustomerDto>.CreateAsync(
+        return await PaginatedList<GetPaginatedCustomersResult>.CreateAsync(
             _context.Customers
-                .ProjectTo<CustomerDto>(_mapper.ConfigurationProvider)
+                .ProjectTo<GetPaginatedCustomersResult>(_mapper.ConfigurationProvider)
                 .AsNoTracking(),
             request.PageNumber,
             request.PageSize,

@@ -3,7 +3,7 @@ using Kovan.Application.Features.Suppliers.Commands.DeleteSupplier;
 using Kovan.Application.Features.Suppliers.Commands.UpdateSupplier;
 using Kovan.Application.Features.Suppliers.Queries.GetSuppliers;
 using Kovan.Application.Features.Suppliers.Queries.GetSupplierById;
-using Kovan.Application.Features.Suppliers.Queries;
+using Kovan.Application.Features.Suppliers.Queries.GetPaginatedSuppliers;
 using MediatR;
 using Kovan.Domain.Constants;
 using Microsoft.AspNetCore.Authorization;
@@ -31,9 +31,9 @@ public class SuppliersController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAll([FromQuery] GetPaginatedSuppliersQuery query)
     {
-        var suppliers = await _sender.Send(new GetSuppliersQuery());
+        var suppliers = await _sender.Send(query);
         return Ok(suppliers);
     }
 

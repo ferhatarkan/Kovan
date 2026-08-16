@@ -1,6 +1,8 @@
 using Kovan.Application.Common.Interfaces;
 using Kovan.Application.Common.Models;
 using Kovan.Infrastructure.BackgroundServices;
+using Kovan.Infrastructure.Common.Behaviors;
+using MediatR;
 using Kovan.Infrastructure.Persistence;
 using Kovan.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +35,10 @@ public static class DependencyInjection
         services.AddTransient<IEmailService, EmailService>();
         services.AddTransient<IFileStorageService, FileStorageService>();
         services.AddScoped<IPdfGenerator, PdfGenerator>();
+        services.AddScoped<IIdentityService, IdentityService>();
+
+        // MediatR Pipeline Behaviors
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionalBehavior<,>));
 
         // Arka plan servisleri
         services.AddHostedService<UpdateOverdueInvoicesService>();

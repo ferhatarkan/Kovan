@@ -1,28 +1,30 @@
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Kovan.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Kovan.Application.Features.Suppliers.Queries.GetSuppliers;
 
-public class GetSuppliersQueryHandler : IRequestHandler<GetSuppliersQuery, List<SupplierDto>>
+public class GetSuppliersQueryHandler : IRequestHandler<GetSuppliersQuery, List<GetSuppliersResult>>
 {
     private readonly IApplicationDbContext _context;
     private readonly IMapper _mapper;
-
     public GetSuppliersQueryHandler(IApplicationDbContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
     }
 
-    public async Task<List<SupplierDto>> Handle(GetSuppliersQuery request, CancellationToken cancellationToken)
+    public async Task<List<GetSuppliersResult>> Handle(GetSuppliersQuery request, CancellationToken cancellationToken)
     {
-        var suppliers = await _context.Suppliers
-                                      .Where(s => !s.IsDeleted) // Sadece silinmemiş tedarikçileri getir
-                                      .OrderBy(s => s.Name)
-                                      .ToListAsync(cancellationToken);
-
-        return _mapper.Map<List<SupplierDto>>(suppliers);
+        return await _context.Suppliers
+            .OrderBy(s => s.Name)
+            .ProjectTo<GetSuppliersResult>(_mapper.ConfigurationProvider)
+            .ToListAsync(cancellationToken);
     }
 }

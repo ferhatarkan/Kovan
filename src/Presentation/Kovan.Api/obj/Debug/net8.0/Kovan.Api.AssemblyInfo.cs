@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kovan.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a2955a8495b6725292d559b715403d4a4baa783")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c01748c38070704eb4f848f7e653943327c1897")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kovan.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kovan.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

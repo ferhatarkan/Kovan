@@ -1,7 +1,7 @@
 using Kovan.Application.Features.Customers.Commands.CreateCustomer;
 using Kovan.Application.Features.Customers.Commands.UpdateCustomer;
 using Kovan.Application.Features.Customers.Commands.DeleteCustomer;
-using Kovan.Application.Features.Customers.Queries;
+using Kovan.Application.Features.Customers.Queries.GetCustomerById;
 using Kovan.Application.Features.Customers.Queries.GetPaginatedCustomers;
 using Kovan.Domain.Constants;
 using MediatR;

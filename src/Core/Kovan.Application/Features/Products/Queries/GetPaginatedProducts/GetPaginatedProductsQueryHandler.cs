@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Kovan.Application.Features.Products.Queries.GetPaginatedProducts;
 
-public class GetPaginatedProductsQueryHandler : IRequestHandler<GetPaginatedProductsQuery, PaginatedList<ProductDto>>
+public class GetPaginatedProductsQueryHandler : IRequestHandler<GetPaginatedProductsQuery, PaginatedList<GetPaginatedProductsResult>>
 {
     private readonly IApplicationDbContext _context;
     private readonly IMapper _mapper;
@@ -18,11 +18,11 @@ public class GetPaginatedProductsQueryHandler : IRequestHandler<GetPaginatedProd
         _mapper = mapper;
     }
 
-    public async Task<PaginatedList<ProductDto>> Handle(GetPaginatedProductsQuery request, CancellationToken cancellationToken)
+    public async Task<PaginatedList<GetPaginatedProductsResult>> Handle(GetPaginatedProductsQuery request, CancellationToken cancellationToken)
     {
-        return await PaginatedList<ProductDto>.CreateAsync(
-            _context.Products
-                .ProjectTo<ProductDto>(_mapper.ConfigurationProvider)
+        return await PaginatedList<GetPaginatedProductsResult>.CreateAsync(
+            _context.Products.Include(p => p.Category) // Category bilgisini dahil et
+                .ProjectTo<GetPaginatedProductsResult>(_mapper.ConfigurationProvider)
                 .AsNoTracking(),
             request.PageNumber,
             request.PageSize,

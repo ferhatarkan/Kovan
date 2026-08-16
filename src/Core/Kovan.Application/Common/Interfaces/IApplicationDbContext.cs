@@ -12,6 +12,7 @@ public interface IApplicationDbContext
     DbSet<Payment> Payments { get; }
     DbSet<InventoryTransaction> InventoryTransactions { get; }
     DbSet<Product> Products { get; }
+    DbSet<Category> Categories { get; } // Yeni eklenen Category DbSet'i
     DbSet<Tenant> Tenants { get; }
     DbSet<UserInvitation> UserInvitations { get; }
     DbSet<Supplier> Suppliers { get; }

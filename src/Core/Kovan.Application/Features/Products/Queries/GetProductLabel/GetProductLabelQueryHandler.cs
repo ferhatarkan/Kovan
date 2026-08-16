@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Kovan.Application.Features.Products.Queries.GetProductLabel;
 
-public class GetProductLabelQueryHandler : IRequestHandler<GetProductLabelQuery, ProductLabelDto>
+public class GetProductLabelQueryHandler : IRequestHandler<GetProductLabelQuery, GetProductLabelResult>
 {
     private readonly IApplicationDbContext _context;
     private readonly IPdfGenerator _pdfGenerator;
@@ -17,10 +17,11 @@ public class GetProductLabelQueryHandler : IRequestHandler<GetProductLabelQuery,
         _pdfGenerator = pdfGenerator;
     }
 
-    public async Task<ProductLabelDto> Handle(GetProductLabelQuery request, CancellationToken cancellationToken)
+    public async Task<GetProductLabelResult> Handle(GetProductLabelQuery request, CancellationToken cancellationToken)
     {
         var product = await _context.Products
             .AsNoTracking()
+            .Include(p => p.Category) // Category bilgisini dahil et
             .FirstOrDefaultAsync(p => p.Id == request.ProductId, cancellationToken);
 
         if (product == null)
@@ -30,9 +31,9 @@ public class GetProductLabelQueryHandler : IRequestHandler<GetProductLabelQuery,
 
         var pdfBytes = _pdfGenerator.GenerateProductLabelPdf(product);
 
-        return new ProductLabelDto
+        return new GetProductLabelResult
         {
-            FileContents = pdfBytes,
+            Content = pdfBytes,
             FileName = $"label-{product.Sku}.pdf"
         };
     }

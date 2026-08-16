@@ -7,18 +7,12 @@ public class UpdateCustomerCommand : IRequest
 {
     public Guid Id { get; set; }
     public CustomerType CustomerType { get; set; }
-
-    // Bireysel Müşteri Alanları
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
     public string? NationalIdentityNumber { get; set; }
-
-    // Kurumsal Müşteri Alanları
     public string? Title { get; set; }
-    public string? TaxNumber { get; set; }
     public string? TaxOffice { get; set; }
-
-    // Ortak Alanlar
+    public string? TaxNumber { get; set; }
     public string Address { get; set; } = string.Empty;
     public string PhoneNumber { get; set; } = string.Empty;
     public string? Email { get; set; }

@@ -1,10 +1,10 @@
 using Kovan.Domain.Entities;
-using Kovan.Application.Features.Invoices.Dtos; // DTO'ların yeni ortak namespace'i
+using Kovan.Application.Features.Invoices.Queries.GetInvoiceById;
 
 namespace Kovan.Application.Common.Interfaces;
 
 public interface IPdfGenerator
 {
     byte[] GenerateProductLabelPdf(Product product);
-    byte[] GenerateInvoicePdf(InvoiceDto invoice, string? logoPath);
+    byte[] GenerateInvoicePdf(GetInvoiceByIdResult invoice, string? logoPath);
 }

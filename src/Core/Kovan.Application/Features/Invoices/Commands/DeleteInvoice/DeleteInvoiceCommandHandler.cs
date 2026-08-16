@@ -45,14 +45,16 @@ public class DeleteInvoiceCommandHandler : IRequestHandler<DeleteInvoiceCommand>
                 // Not: Product entity'si artık doğrudan stok güncellemesi yapmıyor.
                 // Gerçek stok güncellemesi ProductWarehouse üzerinden yapılmalı ve WarehouseId bilgisi gereklidir.
                 productWarehouse.AdjustStock(line.Quantity);
-                var transaction = product.CreateInventoryTransaction(invoice.WarehouseId, line.Quantity, InventoryTransactionType.Return, invoice.Id);
+                var transaction = product.CreateInventoryTransaction(invoice.WarehouseId, line.Quantity, InventoryTransactionType.Return, invoice.Id); // Stok iadesi
                 _context.InventoryTransactions.Add(transaction);
             }
             else
+            {
                 throw new NotFoundException(nameof(ProductWarehouse), line.ProductId);
+            }
         }
 
-        invoice.Delete(); // Domain'deki metodu çağırarak soft delete yap.
+        _context.Invoices.Remove(invoice); // DbContext, bu işlemi soft delete olarak ele alacaktır.
         await _context.SaveChangesAsync(cancellationToken);
     }
 }

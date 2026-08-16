@@ -1,15 +1,16 @@
-using Kovan.Application.Common.Interfaces;
-using Kovan.Application.Common.Mappings;
-using Kovan.Application.Common.Models;
-using Kovan.Application.Features.PurchaseOrders.Dtos;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Kovan.Application.Common.Interfaces;
+using Kovan.Application.Common.Models;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Kovan.Application.Features.PurchaseOrders.Queries.GetPaginatedPurchaseOrders;
 
-public class GetPaginatedPurchaseOrdersQueryHandler : IRequestHandler<GetPaginatedPurchaseOrdersQuery, PaginatedList<PurchaseOrderDto>>
+public class GetPaginatedPurchaseOrdersQueryHandler : IRequestHandler<GetPaginatedPurchaseOrdersQuery, PaginatedList<GetPaginatedPurchaseOrdersResult>>
 {
     private readonly IApplicationDbContext _context;
     private readonly IMapper _mapper;
@@ -20,22 +21,11 @@ public class GetPaginatedPurchaseOrdersQueryHandler : IRequestHandler<GetPaginat
         _mapper = mapper;
     }
 
-    public async Task<PaginatedList<PurchaseOrderDto>> Handle(GetPaginatedPurchaseOrdersQuery request, CancellationToken cancellationToken)
+    public async Task<PaginatedList<GetPaginatedPurchaseOrdersResult>> Handle(GetPaginatedPurchaseOrdersQuery request, CancellationToken cancellationToken)
     {
-        var query = _context.PurchaseOrders
-            .OrderByDescending(po => po.OrderDate)
-            .AsNoTracking();
-
-        // Arama terimi varsa filtrele
-        if (!string.IsNullOrWhiteSpace(request.SearchTerm))
-        {
-            var searchTerm = $"%{request.SearchTerm.ToLower()}%";
-            query = query.Where(po => EF.Functions.Like(po.OrderNumber.ToLower(), searchTerm) || // OrderNumber'a göre arama
-                                      EF.Functions.Like((po.Supplier != null ? po.Supplier.Name : string.Empty).ToLower(), searchTerm)); // Supplier adı null olabilir
-        }
-
-        return await query
-            .ProjectTo<PurchaseOrderDto>(_mapper.ConfigurationProvider)
-            .ToPaginatedListAsync(request.PageNumber, request.PageSize, cancellationToken);
+        return await PaginatedList<GetPaginatedPurchaseOrdersResult>.CreateAsync(
+            _context.PurchaseOrders.AsNoTracking().Include(p => p.Supplier).OrderByDescending(p => p.OrderDate)
+                .ProjectTo<GetPaginatedPurchaseOrdersResult>(_mapper.ConfigurationProvider),
+            request.PageNumber, request.PageSize, cancellationToken);
     }
 }

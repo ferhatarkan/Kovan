@@ -3,7 +3,7 @@ using Kovan.Domain.Constants;
 using Kovan.Application.Features.Invoices.Commands.UpdateInvoice;
 using Kovan.Application.Features.Invoices.Commands.DeleteInvoice;
 using Kovan.Application.Features.Invoices.Commands.AddPayment;
-using Kovan.Application.Features.Invoices.Queries;
+using Kovan.Application.Features.Invoices.Queries.GetInvoiceById;
 using Kovan.Application.Features.Invoices.Queries.GetPaginatedInvoices;
 using Kovan.Application.Features.Invoices.Queries.GetInvoicePdf;
 using MediatR;

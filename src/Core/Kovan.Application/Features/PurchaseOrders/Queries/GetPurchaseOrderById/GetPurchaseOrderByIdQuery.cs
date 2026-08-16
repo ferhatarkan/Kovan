@@ -1,9 +1,8 @@
-using Kovan.Application.Features.PurchaseOrders.Dtos;
 using MediatR;
 
 namespace Kovan.Application.Features.PurchaseOrders.Queries.GetPurchaseOrderById;
 
-public class GetPurchaseOrderByIdQuery : IRequest<PurchaseOrderDto>
+public class GetPurchaseOrderByIdQuery : IRequest<GetPurchaseOrderByIdResult>
 {
     public Guid Id { get; set; }
 }

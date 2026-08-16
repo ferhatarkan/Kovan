@@ -8,6 +8,9 @@ public class Product : BaseEntity
     public string Name { get; private set; } = string.Empty;
     public string Sku { get; private set; } = string.Empty; // Stock Keeping Unit - Ürün Kodu
     public decimal Price { get; private set; }
+    public Guid CategoryId { get; private set; } // Yeni eklenen kategori ID'si
+    public Category? Category { get; private set; } // Navigasyon özelliği
+    public string Brand { get; private set; } = string.Empty;
 
     private readonly List<ProductWarehouse> _productWarehouses = new();
     public IReadOnlyCollection<ProductWarehouse> ProductWarehouses => _productWarehouses.AsReadOnly();
@@ -20,22 +23,27 @@ public class Product : BaseEntity
     private Product() { }
 
     // Factory Method: Nesneyi her zaman geçerli bir durumda oluşturmayı sağlar.
-    public static Product Create(string name, string sku, decimal price, Dictionary<string, string>? properties = null)
+    public static Product Create(string name, string sku, decimal price, string brand, Guid categoryId, Dictionary<string, string>? properties = null)
     {
         // İş Kuralları (Validasyonlar)
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Ürün adı boş olamaz.");
         if (string.IsNullOrWhiteSpace(sku))
             throw new ArgumentException("Ürün kodu (SKU) boş olamaz.");
+        if (string.IsNullOrWhiteSpace(brand))
+            throw new ArgumentException("Marka adı boş olamaz.");
+        if (categoryId == Guid.Empty)
+            throw new ArgumentException("Kategori ID'si boş olamaz.");
         if (price < 0)
             throw new ArgumentException("Fiyat negatif olamaz.");
 
         return new Product
         {
-            Id = Guid.NewGuid(),
             Name = name,
             Sku = sku,
             Price = price,
+            CategoryId = categoryId,
+            Brand = brand,
             Properties = properties ?? new()
         };
     }
@@ -55,15 +63,21 @@ public class Product : BaseEntity
     }
 
     // Ürünün temel bilgilerini (meta-data) güncellemek için.
-    public void UpdateDetails(string name, string sku, Dictionary<string, string> properties)
+    public void UpdateDetails(string name, string sku, string brand, Guid categoryId, Dictionary<string, string> properties)
     {
         if (string.IsNullOrWhiteSpace(name))
             throw new ArgumentException("Ürün adı boş olamaz.");
         if (string.IsNullOrWhiteSpace(sku))
             throw new ArgumentException("Ürün kodu (SKU) boş olamaz.");
+        if (string.IsNullOrWhiteSpace(brand))
+            throw new ArgumentException("Marka adı boş olamaz.");
+        if (categoryId == Guid.Empty)
+            throw new ArgumentException("Kategori ID'si boş olamaz.");
 
         Name = name;
         Sku = sku;
+        CategoryId = categoryId;
+        Brand = brand;
         Properties = properties ?? new();
     }
 

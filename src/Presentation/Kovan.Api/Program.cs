@@ -31,7 +31,7 @@ builder.Host.UseSerilog((context, configuration) =>
 // --- Servisleri Konteynera Ekleme ---
 
 // Katmanlara ait servis kayıtlarını çağır
-builder.Services.AddApplicationServices();
+builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 

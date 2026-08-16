@@ -1,13 +1,17 @@
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Kovan.Application.Common.Exceptions;
 using Kovan.Application.Common.Interfaces;
 using Kovan.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Kovan.Application.Features.Suppliers.Queries.GetSupplierById;
 
-public class GetSupplierByIdQueryHandler : IRequestHandler<GetSupplierByIdQuery, SupplierDto>
+public class GetSupplierByIdQueryHandler : IRequestHandler<GetSupplierByIdQuery, GetSupplierByIdResult>
 {
     private readonly IApplicationDbContext _context;
     private readonly IMapper _mapper;
@@ -18,12 +22,13 @@ public class GetSupplierByIdQueryHandler : IRequestHandler<GetSupplierByIdQuery,
         _mapper = mapper;
     }
 
-    public async Task<SupplierDto> Handle(GetSupplierByIdQuery request, CancellationToken cancellationToken)
+    public async Task<GetSupplierByIdResult> Handle(GetSupplierByIdQuery request, CancellationToken cancellationToken)
     {
         var supplier = await _context.Suppliers
-                                     .FirstOrDefaultAsync(s => s.Id == request.Id && !s.IsDeleted, cancellationToken)
-                                     ?? throw new NotFoundException(nameof(Supplier), request.Id);
+            .Where(s => s.Id == request.Id)
+            .ProjectTo<GetSupplierByIdResult>(_mapper.ConfigurationProvider)
+            .FirstOrDefaultAsync(cancellationToken);
 
-        return _mapper.Map<SupplierDto>(supplier);
+        return supplier ?? throw new NotFoundException(nameof(Supplier), request.Id);
     }
 }

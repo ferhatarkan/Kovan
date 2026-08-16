@@ -1,5 +1,6 @@
 using Kovan.Application.Common.Interfaces;
 using Kovan.Domain.Entities;
+using Kovan.Application.Features.Invoices.Queries.GetInvoiceById;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
@@ -31,6 +32,8 @@ public class PdfGenerator : IPdfGenerator
                     .Column(column =>
                     {
                         column.Spacing(2);
+                        column.Item().Text($"Kategori: {product.Category?.Name ?? "Belirtilmemiş"}").FontSize(8); // Kategori bilgisini ekle
+                        column.Item().Text(product.Brand).SemiBold().FontSize(10); // Markayı etikete ekle
                         column.Item().Text(product.Name).SemiBold().FontSize(12);
                         column.Item().Text($"{product.Price:C}").Bold().FontSize(14);
                         column.Item().Height(1, Unit.Centimetre).AlignCenter()
@@ -64,7 +67,7 @@ public class PdfGenerator : IPdfGenerator
         return encodedImage.ToArray();
     }
 
-    public byte[] GenerateInvoicePdf(Kovan.Application.Features.Invoices.Dtos.InvoiceDto invoice, string? logoPath)
+    public byte[] GenerateInvoicePdf(GetInvoiceByIdResult invoice, string? logoPath)
     {
         // Bu, InvoiceDto'nun içeriğine göre gerçek bir fatura PDF'i oluşturma mantığıdır.
         // QuestPDF dokümantasyonuna göre daha detaylı bir tasarım yapılabilir.
@@ -124,12 +127,12 @@ public class PdfGenerator : IPdfGenerator
                             {
                                 table.Cell().Text(line.ProductName);
                                 table.Cell().Text(line.Quantity.ToString());
-                                table.Cell().Text($"{line.UnitPrice:C}");
-                                table.Cell().Text($"{line.Total:C}");
+                                table.Cell().Text($"{line.UnitPrice:C}"); // C: Para birimi formatı
+                                table.Cell().Text($"{line.GrossTotal:C}"); // C: Para birimi formatı
                             }
                         });
 
-                        column.Item().AlignRight().Text($"Genel Toplam: {invoice.TotalAmount:C}").FontSize(14).Bold();
+                        column.Item().AlignRight().Text($"Genel Toplam: {invoice.GrandTotal:C}").FontSize(14).Bold();
                     });
 
                 page.Footer()

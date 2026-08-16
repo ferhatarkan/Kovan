@@ -1,14 +1,17 @@
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Kovan.Application.Common.Exceptions;
 using Kovan.Application.Common.Interfaces;
-using Kovan.Application.Features.PurchaseOrders.Dtos;
 using Kovan.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Kovan.Application.Features.PurchaseOrders.Queries.GetPurchaseOrderById;
 
-public class GetPurchaseOrderByIdQueryHandler : IRequestHandler<GetPurchaseOrderByIdQuery, PurchaseOrderDto>
+public class GetPurchaseOrderByIdQueryHandler : IRequestHandler<GetPurchaseOrderByIdQuery, GetPurchaseOrderByIdResult>
 {
     private readonly IApplicationDbContext _context;
     private readonly IMapper _mapper;
@@ -19,14 +22,13 @@ public class GetPurchaseOrderByIdQueryHandler : IRequestHandler<GetPurchaseOrder
         _mapper = mapper;
     }
 
-    public async Task<PurchaseOrderDto> Handle(GetPurchaseOrderByIdQuery request, CancellationToken cancellationToken)
+    public async Task<GetPurchaseOrderByIdResult> Handle(GetPurchaseOrderByIdQuery request, CancellationToken cancellationToken)
     {
-        var purchaseOrder = await _context.PurchaseOrders
-            .Include(x => x.Supplier)
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
-            ?? throw new NotFoundException(nameof(PurchaseOrder), request.Id);
+        var purchaseOrder = await _context.PurchaseOrders.AsNoTracking()
+            .Where(p => p.Id == request.Id)
+            .ProjectTo<GetPurchaseOrderByIdResult>(_mapper.ConfigurationProvider)
+            .FirstOrDefaultAsync(cancellationToken);
 
-        return _mapper.Map<PurchaseOrderDto>(purchaseOrder);
+        return purchaseOrder ?? throw new NotFoundException(nameof(PurchaseOrder), request.Id);
     }
 }

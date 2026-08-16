@@ -23,7 +23,7 @@ public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
             throw new NotFoundException(nameof(Product), request.Id);
         }
 
-        entity.UpdateDetails(request.Name, request.Sku, entity.Properties); // Name ve Sku'yu UpdateDetails ile güncelle
+        entity.UpdateDetails(request.Name, request.Sku, request.Brand, request.CategoryId, request.Properties); // Brand ve CategoryId'yi de ekledik
         entity.UpdatePrice(request.Price);
 
         await _context.SaveChangesAsync(cancellationToken);

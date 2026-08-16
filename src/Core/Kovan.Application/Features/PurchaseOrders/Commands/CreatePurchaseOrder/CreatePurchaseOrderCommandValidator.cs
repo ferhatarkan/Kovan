@@ -1,30 +1,35 @@
 using FluentValidation;
+using Kovan.Application.Common.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Kovan.Application.Features.PurchaseOrders.Commands.CreatePurchaseOrder;
 
 public class CreatePurchaseOrderCommandValidator : AbstractValidator<CreatePurchaseOrderCommand>
 {
-    public CreatePurchaseOrderCommandValidator()
-    {
-        RuleFor(v => v.SupplierId)
-            .NotEmpty().WithMessage("Tedarikçi ID'si boş olamaz.");
+    private readonly IApplicationDbContext _context;
 
-        RuleFor(v => v.OrderDate)
-            .NotEmpty().WithMessage("Sipariş tarihi boş olamaz.");
+    public CreatePurchaseOrderCommandValidator(IApplicationDbContext context)
+    {
+        _context = context;
+
+        RuleFor(v => v.SupplierId)
+            .NotEmpty().WithMessage("Tedarikçi ID'si boş olamaz.")
+            .MustAsync(SupplierMustExist).WithMessage("Belirtilen tedarikçi bulunamadı.");
 
         RuleFor(v => v.Lines)
-            .NotEmpty().WithMessage("Sipariş en az bir satır içermelidir.");
+            .NotEmpty().WithMessage("Satın alma siparişi en az bir satır içermelidir.");
 
-        RuleForEach(v => v.Lines).SetValidator(new LineItemDtoValidator());
+        RuleForEach(v => v.Lines).ChildRules(line =>
+        {
+            line.RuleFor(l => l.ProductId).NotEmpty().WithMessage("Ürün ID'si boş olamaz.")
+                .MustAsync(ProductMustExist).WithMessage("Satırdaki ürün bulunamadı.");
+            line.RuleFor(l => l.Quantity).GreaterThan(0).WithMessage("Miktar 0'dan büyük olmalıdır.");
+            line.RuleFor(l => l.PurchasePrice).GreaterThanOrEqualTo(0).WithMessage("Satın alma fiyatı negatif olamaz.");
+        });
     }
-}
 
-public class LineItemDtoValidator : AbstractValidator<CreatePurchaseOrderCommand.LineItemDto> // Sınıf adı ile constructor adı aynı olmalı
-{
-    public LineItemDtoValidator() // Constructor adı düzeltildi
-    {
-        RuleFor(l => l.ProductId).NotEmpty();
-        RuleFor(l => l.Quantity).GreaterThan(0);
-        RuleFor(l => l.PurchasePrice).GreaterThanOrEqualTo(0);
-    }
+    private async Task<bool> SupplierMustExist(Guid supplierId, CancellationToken cancellationToken) => await _context.Suppliers.AnyAsync(s => s.Id == supplierId, cancellationToken);
+    private async Task<bool> ProductMustExist(Guid productId, CancellationToken cancellationToken) => await _context.Products.AnyAsync(p => p.Id == productId, cancellationToken);
 }

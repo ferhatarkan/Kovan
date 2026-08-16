@@ -1,5 +1,7 @@
 using Kovan.Application.Features.Tenants.Commands.UpdateTenantSettings;
 using Kovan.Application.Features.Tenants.Commands.InviteUser;
+using Kovan.Application.Features.Tenants.Queries.GetPaginatedTenantUsers;
+using Kovan.Application.Features.Tenants.Queries.GetTenantSettings;
 using Kovan.Domain.Constants;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -19,11 +21,25 @@ public class TenantsController : ControllerBase
         _sender = sender;
     }
 
+    [HttpGet("settings")]
+    public async Task<IActionResult> GetSettings()
+    {
+        var settings = await _sender.Send(new GetTenantSettingsQuery());
+        return Ok(settings);
+    }
+
     [HttpPut("settings")]
     public async Task<IActionResult> UpdateSettings(UpdateTenantSettingsCommand command)
     {
         await _sender.Send(command);
         return NoContent();
+    }
+
+    [HttpGet("users")]
+    public async Task<IActionResult> GetUsers([FromQuery] GetPaginatedTenantUsersQuery query)
+    {
+        var users = await _sender.Send(query);
+        return Ok(users);
     }
 
     [HttpPost("invitations")]
