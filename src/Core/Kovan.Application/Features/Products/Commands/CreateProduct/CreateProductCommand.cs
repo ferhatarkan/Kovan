@@ -1,9 +1,10 @@
 using MediatR;
+using Kovan.Application.Common.Interfaces;
 using System.Collections.Generic;
 
 namespace Kovan.Application.Features.Products.Commands.CreateProduct;
 
-public class CreateProductCommand : IRequest<Guid>
+public class CreateProductCommand : IRequest<Guid>, ITransactionalRequest
 {
     public string Name { get; set; } = string.Empty;
     public string Sku { get; set; } = string.Empty;

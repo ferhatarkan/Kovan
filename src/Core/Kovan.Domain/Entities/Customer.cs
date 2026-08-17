@@ -22,6 +22,9 @@ public class Customer : BaseEntity
     public string PhoneNumber { get; private set; } = string.Empty;
     public string? Email { get; private set; }
 
+    private readonly List<Invoice> _invoices = new();
+    public IReadOnlyCollection<Invoice> Invoices => _invoices.AsReadOnly();
+
     private Customer() { } // EF Core için gerekli
 
     public static Customer CreateCorporate(string title, string taxNumber, string taxOffice, string address, string phoneNumber, string? email = null)

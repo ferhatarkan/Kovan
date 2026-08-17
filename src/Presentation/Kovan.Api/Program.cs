@@ -13,6 +13,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
+using Asp.Versioning;
+using AspNetCoreRateLimit;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +43,75 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddControllers();
+// CORS Yapılandırması
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+
+    options.AddPolicy("AllowConfiguredOrigins", policy =>
+    {
+        var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
+
+        if (allowedOrigins.Any())
+        {
+            policy.WithOrigins(allowedOrigins)
+                  .AllowAnyMethod()
+                  .AllowAnyHeader()
+                  .AllowCredentials();
+        }
+        else
+        {
+            // Fallback to allowing all if not configured
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        }
+    });
+});
+
+// Health Checks Yapılandırması
+builder.Services.AddHealthChecks();
+
+// Rate Limiting Yapılandırması
+builder.Services.AddMemoryCache();
+builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
+builder.Services.AddInMemoryRateLimiting();
+builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+
+// Caching Yapılandırması (Redis)
+var redisEnabled = builder.Configuration.GetValue<bool>("Redis:Enabled");
+var redisConnectionString = builder.Configuration.GetValue<string>("Redis:ConnectionString");
+
+if (redisEnabled && !string.IsNullOrEmpty(redisConnectionString))
+{
+    builder.Services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = redisConnectionString;
+    });
+}
+else
+{
+    // Fallback to in-memory cache if Redis is not configured
+    builder.Services.AddDistributedMemoryCache();
+}
+
+// API Versioning Yapılandırması
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.ReportApiVersions = true;
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ApiVersionReader = ApiVersionReader.Combine(
+        new UrlSegmentApiVersionReader(),
+        new HeaderApiVersionReader("x-api-version")
+    );
+});
+
 // Swagger/OpenAPI yapılandırması
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -158,12 +230,41 @@ if (app.Environment.IsDevelopment())
 // Gelen HTTP isteklerini otomatik olarak loglamak için Serilog middleware'ini ekle.
 app.UseSerilogRequestLogging();
 
+// Rate Limiting middleware'ini ekle (CORS'un sonrasına ekle)
+app.UseIpRateLimiting();
+
+// CORS middleware'ini ekle (Authentication'dan önce olmalı)
+var corsPolicy = app.Environment.IsDevelopment() ? "AllowAllOrigins" : "AllowConfiguredOrigins";
+app.UseCors(corsPolicy);
+
 // wwwroot klasöründeki statik dosyaların sunulmasını sağlar.
 app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Health Checks endpoint'i
+app.MapHealthChecks("/health");
+app.MapHealthChecks("/health/detailed", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+{
+    ResponseWriter = async (context, report) =>
+    {
+        context.Response.ContentType = "application/json";
+        var response = new
+        {
+            status = report.Status.ToString(),
+            checks = report.Entries.Select(x => new
+            {
+                name = x.Key,
+                status = x.Value.Status.ToString(),
+                description = x.Value.Description,
+                duration = x.Value.Duration
+            })
+        };
+        await context.Response.WriteAsJsonAsync(response);
+    }
+});
 
 app.MapControllers();
 app.Run();

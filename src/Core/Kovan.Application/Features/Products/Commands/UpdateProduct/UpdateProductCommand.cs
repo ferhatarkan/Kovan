@@ -1,9 +1,10 @@
 using MediatR;
+using Kovan.Application.Common.Interfaces;
 using System.Collections.Generic;
 
 namespace Kovan.Application.Features.Products.Commands.UpdateProduct;
 
-public class UpdateProductCommand : IRequest
+public class UpdateProductCommand : IRequest, ITransactionalRequest
 {
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;

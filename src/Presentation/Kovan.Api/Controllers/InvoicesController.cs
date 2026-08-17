@@ -9,11 +9,13 @@ using Kovan.Application.Features.Invoices.Queries.GetInvoicePdf;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Asp.Versioning;
 
 namespace Kovan.Api.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v{version:apiVersion}/[controller]")]
+[ApiVersion("1.0")]
 [Authorize] // Controller seviyesinde yetkilendirme
 public class InvoicesController : ControllerBase
 {

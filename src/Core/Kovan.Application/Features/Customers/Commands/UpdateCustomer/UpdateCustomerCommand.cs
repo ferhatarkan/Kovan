@@ -1,9 +1,10 @@
 using Kovan.Domain.Enums;
 using MediatR;
+using Kovan.Application.Common.Interfaces;
 
 namespace Kovan.Application.Features.Customers.Commands.UpdateCustomer;
 
-public class UpdateCustomerCommand : IRequest
+public class UpdateCustomerCommand : IRequest, ITransactionalRequest
 {
     public Guid Id { get; set; }
     public CustomerType CustomerType { get; set; }

@@ -1,10 +1,11 @@
 using Kovan.Domain.Enums;
 using MediatR;
+using Kovan.Application.Common.Interfaces;
 using System.Text.Json.Serialization;
 
 namespace Kovan.Application.Features.Invoices.Commands.AddPayment;
 
-public class AddPaymentCommand : IRequest
+public class AddPaymentCommand : IRequest, ITransactionalRequest
 {
     [JsonIgnore] // InvoiceId rotadan (route) alınacak.
     public Guid InvoiceId { get; set; }

@@ -20,16 +20,18 @@ public class ResetPasswordCommandHandler : IRequestHandler<ResetPasswordCommand>
 
         if (user == null)
         {
-            // Güvenlik nedeniyle kullanıcının var olup olmadığını belli etme.
-            // Sadece genel bir hata mesajı döndür.
-            throw new ValidationException(new[] { new FluentValidation.Results.ValidationFailure("Token", "Geçersiz e-posta veya şifre sıfırlama anahtarı.") });
+            // Güvenlik Notu: Kullanıcı bulunamazsa, bir e-posta adresinin sistemde kayıtlı olup olmadığını
+            // belli etmemek için hata fırlatılmaz. İşlem sessizce sonlandırılır.
+            // Bu, kullanıcı enumerasyon saldırılarını (user enumeration attacks) önler.
+            // İstemci tarafına her zaman işlemin başarılı olduğuna dair bir mesaj gösterilmelidir.
+            return;
         }
 
         var result = await _userManager.ResetPasswordAsync(user, request.Token, request.Password);
 
         if (!result.Succeeded)
         {
-            throw new ValidationException(result.Errors.Select(e => new FluentValidation.Results.ValidationFailure(e.Code, e.Description)));
+            throw new ValidationException(result.Errors.Select(e => new FluentValidation.Results.ValidationFailure("Token", e.Description)));
         }
     }
 }

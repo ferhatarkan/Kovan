@@ -9,6 +9,9 @@ public class Warehouse : BaseEntity
     public string? LocationAddress { get; private set; }
     public WarehouseType Type { get; private set; } // Örneğin: Display, Main, Store
 
+    private readonly List<ProductWarehouse> _productWarehouses = new();
+    public IReadOnlyCollection<ProductWarehouse> ProductWarehouses => _productWarehouses.AsReadOnly();
+
     private Warehouse() { }
 
     public static Warehouse Create(string name, string? locationAddress, WarehouseType type)

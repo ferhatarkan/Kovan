@@ -1,10 +1,11 @@
 using MediatR;
+using Kovan.Application.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 
 namespace Kovan.Application.Features.Invoices.Commands.CreateInvoice;
 
-public class CreateInvoiceCommand : IRequest<Guid>
+public class CreateInvoiceCommand : IRequest<Guid>, ITransactionalRequest
 {
     public Guid CustomerId { get; set; }
     public Guid WarehouseId { get; set; }

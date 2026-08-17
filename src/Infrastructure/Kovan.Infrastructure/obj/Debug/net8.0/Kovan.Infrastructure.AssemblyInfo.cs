@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kovan.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c01748c38070704eb4f848f7e653943327c1897")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+340db777722bfa6059586503f39c218c0d61d582")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kovan.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kovan.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

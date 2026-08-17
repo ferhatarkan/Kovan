@@ -1,9 +1,10 @@
 using Kovan.Application.Features.Auth.Commands.Login;
 using MediatR;
+using Kovan.Application.Common.Interfaces;
 
 namespace Kovan.Application.Features.Auth.Commands.AcceptInvitation;
 
-public class AcceptInvitationCommand : IRequest<LoginResponseDto>
+public class AcceptInvitationCommand : IRequest<LoginResponseDto>, ITransactionalRequest
 {
     public string Token { get; set; } = string.Empty;
     public string FirstName { get; set; } = string.Empty;

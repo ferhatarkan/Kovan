@@ -1,9 +1,10 @@
 using Kovan.Domain.Enums;
 using MediatR;
+using Kovan.Application.Common.Interfaces;
 
 namespace Kovan.Application.Features.Customers.Commands.CreateCustomer;
 
-public class CreateCustomerCommand : IRequest<Guid>
+public class CreateCustomerCommand : IRequest<Guid>, ITransactionalRequest
 {
     public CustomerType CustomerType { get; set; }
     public string? FirstName { get; set; }
