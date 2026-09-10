@@ -1,0 +1,18 @@
+<div class="layout">
+  <aside class="sidebar" [class.sidebar-open]="isSidebarOpen">
+    <div class="brand">🐝 Kovan</div>
+    <nav>
+      <a routerLink="/products" routerLinkActive="active" (click)="isSidebarOpen = false">Ürünler</a>
+      <a routerLink="/customers" routerLinkActive="active" (click)="isSidebarOpen = false">Müşteriler</a>
+      <a routerLink="/invoices" routerLinkActive="active" (click)="isSidebarOpen = false">Faturalar</a>
+    </nav>
+    <button type="button" class="logout-btn" (click)="onLogout()">Çıkış Yap</button>
+  </aside>
+
+  <main class="content">
+    <button type="button" class="mobile-menu-toggle" (click)="toggleSidebar()">
+      <span class="hamburger"></span>
+    </button>
+    <router-outlet />
+  </main>
+</div>

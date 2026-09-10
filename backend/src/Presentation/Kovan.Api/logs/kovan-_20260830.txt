@@ -1,0 +1,296 @@
+2026-08-30 00:20:38.086 [INF] Veritabanı migration'ları uygulanıyor...
+2026-08-30 00:20:38.630 [INF] Bekleyen veritabanı migration'ı bulunmuyor.
+2026-08-30 00:20:38.630 [INF] Veritabanı tohumlama işlemi başlatılıyor...
+2026-08-30 00:20:38.927 [INF] Veritabanı tohumlama işlemi başarıyla tamamlandı.
+2026-08-30 00:20:38.964 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-30 00:20:38.964 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-30 00:20:38.979 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-30 00:22:21.789 [WRN] Failed to determine the https port for redirect.
+2026-08-30 00:22:21.801 [INF] HTTP GET /api/health responded 404 in 28.1258 ms
+2026-08-30 00:32:03.925 [INF] Veritabanı migration'ları uygulanıyor...
+2026-08-30 00:32:04.425 [INF] Bekleyen veritabanı migration'ı bulunmuyor.
+2026-08-30 00:32:04.425 [INF] Veritabanı tohumlama işlemi başlatılıyor...
+2026-08-30 00:32:04.584 [INF] Veritabanı tohumlama işlemi başarıyla tamamlandı.
+2026-08-30 00:32:04.622 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-30 00:32:04.622 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-30 00:32:04.642 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-30 00:33:58.343 [WRN] Failed to determine the https port for redirect.
+2026-08-30 00:33:58.356 [INF] HTTP GET /api/health responded 404 in 30.5704 ms
+2026-08-30 00:34:48.492 [INF] HTTP POST /api/v1/auth/login responded 404 in 3.2099 ms
+2026-08-30 00:35:04.349 [INF] HTTP POST /api/v1/auth/login responded 404 in 2.9988 ms
+2026-08-30 00:35:33.213 [INF] HTTP GET /api responded 404 in 0.2179 ms
+2026-08-30 00:36:52.951 [INF] HTTP POST /api/v1/auth/login responded 404 in 0.6464 ms
+2026-08-30 00:38:03.385 [INF] Veritabanı migration'ları uygulanıyor...
+2026-08-30 00:38:03.871 [INF] Bekleyen veritabanı migration'ı bulunmuyor.
+2026-08-30 00:38:03.871 [INF] Veritabanı tohumlama işlemi başlatılıyor...
+2026-08-30 00:38:04.000 [INF] Veritabanı tohumlama işlemi başarıyla tamamlandı.
+2026-08-30 00:38:04.034 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-30 00:38:04.034 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-30 00:38:04.069 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-30 00:38:04.091 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5194: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (48): Address already in use
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-08-30 00:38:59.552 [INF] Veritabanı migration'ları uygulanıyor...
+2026-08-30 00:39:00.067 [INF] Bekleyen veritabanı migration'ı bulunmuyor.
+2026-08-30 00:39:00.068 [INF] Veritabanı tohumlama işlemi başlatılıyor...
+2026-08-30 00:39:00.197 [INF] Veritabanı tohumlama işlemi başarıyla tamamlandı.
+2026-08-30 00:39:00.232 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-30 00:39:00.233 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-30 00:39:00.254 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-30 00:39:53.569 [WRN] Failed to determine the https port for redirect.
+2026-08-30 00:39:53.578 [INF] HTTP POST /api/v1/auth/login responded 404 in 27.2424 ms
+2026-08-30 00:41:17.091 [INF] Veritabanı migration'ları uygulanıyor...
+2026-08-30 00:41:17.598 [INF] Bekleyen veritabanı migration'ı bulunmuyor.
+2026-08-30 00:41:17.598 [INF] Veritabanı tohumlama işlemi başlatılıyor...
+2026-08-30 00:41:17.732 [INF] Veritabanı tohumlama işlemi başarıyla tamamlandı.
+2026-08-30 00:41:17.768 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-30 00:41:17.768 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-30 00:41:17.788 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-30 00:41:44.823 [WRN] Failed to determine the https port for redirect.
+2026-08-30 00:41:44.834 [INF] HTTP POST /api/v1/auth/login responded 404 in 30.4304 ms
+2026-08-30 00:42:07.031 [INF] HTTP POST /api/v1/auth/login responded 404 in 2.0631 ms
+2026-08-30 00:42:07.732 [INF] HTTP POST /api/v1/auth/login responded 404 in 3.7463 ms
+2026-08-30 00:42:07.928 [INF] HTTP POST /api/v1/auth/login responded 404 in 1.0572 ms
+2026-08-30 00:42:08.129 [INF] HTTP POST /api/v1/auth/login responded 404 in 0.2609 ms
+2026-08-30 00:42:08.395 [INF] HTTP POST /api/v1/auth/login responded 404 in 1.4026 ms
+2026-08-30 00:43:05.100 [INF] Veritabanı migration'ları uygulanıyor...
+2026-08-30 00:43:05.619 [INF] Bekleyen veritabanı migration'ı bulunmuyor.
+2026-08-30 00:43:05.619 [INF] Veritabanı tohumlama işlemi başlatılıyor...
+2026-08-30 00:43:05.750 [INF] Veritabanı tohumlama işlemi başarıyla tamamlandı.
+2026-08-30 00:43:05.785 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-30 00:43:05.786 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-30 00:43:05.807 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-30 00:43:05.827 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5194: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (48): Address already in use
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-08-30 00:43:19.496 [INF] Veritabanı migration'ları uygulanıyor...
+2026-08-30 00:43:20.013 [INF] Bekleyen veritabanı migration'ı bulunmuyor.
+2026-08-30 00:43:20.013 [INF] Veritabanı tohumlama işlemi başlatılıyor...
+2026-08-30 00:43:20.149 [INF] Veritabanı tohumlama işlemi başarıyla tamamlandı.
+2026-08-30 00:43:20.186 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-30 00:43:20.186 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-30 00:43:20.208 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-30 00:45:04.189 [WRN] Failed to determine the https port for redirect.
+2026-08-30 00:45:04.199 [INF] HTTP POST /api/v1/auth/login responded 404 in 28.6535 ms
+2026-08-30 00:45:55.159 [INF] HTTP POST /api/v1/auth/login responded 404 in 1.0323 ms
+2026-08-30 00:47:56.070 [INF] Veritabanı migration'ları uygulanıyor...
+2026-08-30 00:47:56.585 [INF] Bekleyen veritabanı migration'ı bulunmuyor.
+2026-08-30 00:47:56.585 [INF] Veritabanı tohumlama işlemi başlatılıyor...
+2026-08-30 00:47:56.718 [INF] Veritabanı tohumlama işlemi başarıyla tamamlandı.
+2026-08-30 00:47:56.753 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-30 00:47:56.754 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-30 00:47:56.774 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-30 00:48:24.110 [WRN] Failed to determine the https port for redirect.
+2026-08-30 00:48:24.174 [ERR] Kovan Request: Unhandled Exception for Request LoginCommand {"Email":"test@example.com","Password":"wrongpassword","$type":"LoginCommand"}
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+2026-08-30 00:48:24.180 [ERR] HTTP POST /api/v1/auth/login responded 500 in 83.8899 ms
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Login(LoginCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-08-30 00:48:24.189 [ERR] Beklenmedik bir hata oluştu: One or more validation failures have occurred.
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Login(LoginCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Kovan.Api.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Middleware/ErrorHandlingMiddleware.cs:line 23
+2026-08-30 00:49:07.121 [INF] Veritabanı migration'ları uygulanıyor...
+2026-08-30 00:49:07.625 [INF] Bekleyen veritabanı migration'ı bulunmuyor.
+2026-08-30 00:49:07.625 [INF] Veritabanı tohumlama işlemi başlatılıyor...
+2026-08-30 00:49:07.760 [INF] Veritabanı tohumlama işlemi başarıyla tamamlandı.
+2026-08-30 00:49:07.795 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-30 00:49:07.796 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-30 00:49:07.817 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-30 00:49:07.837 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5194: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (48): Address already in use
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-08-30 00:49:43.459 [INF] Veritabanı migration'ları uygulanıyor...
+2026-08-30 00:49:43.951 [INF] Bekleyen veritabanı migration'ı bulunmuyor.
+2026-08-30 00:49:43.952 [INF] Veritabanı tohumlama işlemi başlatılıyor...
+2026-08-30 00:49:44.087 [INF] Veritabanı tohumlama işlemi başarıyla tamamlandı.
+2026-08-30 00:49:44.122 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-30 00:49:44.122 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-30 00:49:44.143 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-30 00:50:20.460 [WRN] Failed to determine the https port for redirect.
+2026-08-30 00:50:20.588 [ERR] Kovan Request: Unhandled Exception for Request LoginCommand {"Email":"admin@kovan.com","Password":"Admin123","$type":"LoginCommand"}
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+2026-08-30 00:50:20.596 [ERR] HTTP POST /api/v1/auth/login responded 500 in 153.5109 ms
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Login(LoginCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-08-30 00:50:20.599 [ERR] Beklenmedik bir hata oluştu: One or more validation failures have occurred.
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Login(LoginCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Kovan.Api.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Middleware/ErrorHandlingMiddleware.cs:line 23
+2026-08-30 00:51:44.739 [INF] Veritabanı migration'ları uygulanıyor...
+2026-08-30 00:51:45.225 [INF] Bekleyen veritabanı migration'ı bulunmuyor.
+2026-08-30 00:51:45.225 [INF] Veritabanı tohumlama işlemi başlatılıyor...
+2026-08-30 00:51:45.352 [INF] Veritabanı tohumlama işlemi başarıyla tamamlandı.
+2026-08-30 00:51:45.388 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-30 00:51:45.388 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-30 00:51:45.410 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-30 00:52:21.158 [WRN] Failed to determine the https port for redirect.
+2026-08-30 00:52:21.347 [INF] HTTP POST /api/v1/auth/login responded 200 in 206.0125 ms
+2026-08-30 00:52:21.463 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-08-30 00:52:21.464 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-08-30 00:52:21.480 [INF] HTTP GET /api/v1/products responded 200 in 107.8862 ms
+2026-08-30 00:52:29.883 [INF] HTTP GET /api/customers responded 404 in 5.0912 ms
+2026-08-30 00:52:30.787 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-08-30 00:52:30.787 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-08-30 00:52:30.813 [INF] HTTP GET /api/v1/invoices/paginated responded 200 in 53.5710 ms
+2026-08-30 00:52:32.096 [INF] HTTP GET /api/v1/products responded 200 in 13.8556 ms
+2026-08-30 00:52:33.706 [INF] HTTP GET /api/customers responded 404 in 1.1867 ms
+2026-08-30 00:52:37.645 [INF] HTTP GET /api/v1/products responded 200 in 10.0046 ms
+2026-08-30 00:52:38.378 [INF] HTTP GET /api/v1/invoices/paginated responded 200 in 8.6638 ms
+2026-08-30 00:52:39.106 [INF] HTTP GET /api/customers responded 404 in 1.2027 ms
+2026-08-30 00:53:28.212 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-08-30 00:53:28.212 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-08-30 00:53:28.220 [INF] HTTP GET /api/v1/customers responded 200 in 16.6908 ms
+2026-08-30 00:53:35.195 [INF] HTTP GET /api/v1/customers responded 200 in 3.0036 ms
+2026-08-30 00:54:04.909 [INF] HTTP GET /api/v1/products responded 200 in 5.2996 ms
+2026-08-30 00:54:05.893 [INF] HTTP GET /api/v1/customers responded 200 in 8.6195 ms
+2026-08-30 00:54:06.710 [INF] HTTP GET /api/v1/invoices/paginated responded 200 in 9.0533 ms
+2026-08-30 00:54:08.143 [INF] HTTP GET /api/v1/products responded 200 in 7.1376 ms
+2026-08-30 00:54:09.499 [INF] HTTP GET /api/v1/invoices/paginated responded 200 in 6.4310 ms
+2026-08-30 00:54:10.368 [INF] HTTP GET /api/v1/customers responded 200 in 11.4956 ms
+2026-08-30 00:54:11.131 [INF] HTTP GET /api/v1/products responded 200 in 4.0945 ms
+2026-08-30 00:54:19.333 [INF] HTTP GET /api/v1/customers responded 200 in 6.5624 ms
+2026-08-30 00:54:20.078 [INF] HTTP GET /api/v1/invoices/paginated responded 200 in 6.0646 ms
+2026-08-30 00:54:21.029 [INF] HTTP GET /api/v1/customers responded 200 in 2.8697 ms
+2026-08-30 00:54:21.517 [INF] HTTP GET /api/v1/products responded 200 in 4.9117 ms
+2026-08-30 00:56:58.973 [INF] HTTP GET /api/v1/products responded 200 in 7.3058 ms

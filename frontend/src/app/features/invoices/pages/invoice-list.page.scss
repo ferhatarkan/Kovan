@@ -1,0 +1,30 @@
+/* Page-specific styles */
+/* Common styles moved to styles.scss */
+
+/* Status Badge Variants */
+.status-badge {
+  &.status-draft {
+    background: #f1f5f9;
+    color: #475569;
+  }
+
+  &.status-sent {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+
+  &.status-partially-paid {
+    background: #fef3c7;
+    color: #b45309;
+  }
+
+  &.status-paid {
+    background: #dcfce7;
+    color: #15803d;
+  }
+
+  &.status-overdue {
+    background: #fee2e2;
+    color: #b91c1c;
+  }
+}

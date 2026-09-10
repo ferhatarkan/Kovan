@@ -1,0 +1,33 @@
+2026-09-10 20:16:28.400 [INF] Veritabanı migration'ları uygulanıyor...
+2026-09-10 20:16:28.950 [INF] Bekleyen veritabanı migration'ı bulunmuyor.
+2026-09-10 20:16:28.951 [INF] Veritabanı tohumlama işlemi başlatılıyor...
+2026-09-10 20:16:29.095 [INF] Veritabanı tohumlama işlemi başarıyla tamamlandı.
+2026-09-10 20:16:29.134 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-09-10 20:16:29.135 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-09-10 20:16:29.155 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-09-10 20:16:57.223 [WRN] Failed to determine the https port for redirect.
+2026-09-10 20:16:57.428 [INF] HTTP POST /api/v1/auth/login responded 200 in 233.9050 ms
+2026-09-10 20:16:57.535 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-09-10 20:16:57.535 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-09-10 20:16:57.548 [INF] HTTP GET /api/v1/products responded 200 in 102.9414 ms
+2026-09-10 20:17:21.540 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-09-10 20:17:21.541 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-09-10 20:17:21.551 [INF] HTTP GET /api/v1/customers responded 200 in 23.8328 ms
+2026-09-10 20:17:22.239 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-09-10 20:17:22.239 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-09-10 20:17:22.252 [INF] HTTP GET /api/v1/invoices/paginated responded 200 in 23.8564 ms
+2026-09-10 20:17:23.496 [INF] HTTP GET /api/v1/products responded 200 in 6.5650 ms
+2026-09-10 20:17:30.589 [INF] HTTP GET /api/v1/customers responded 200 in 6.5529 ms
+2026-09-10 20:17:33.310 [INF] HTTP GET /api/v1/invoices/paginated responded 200 in 6.7973 ms
+2026-09-10 20:17:35.220 [INF] HTTP GET /api/v1/customers responded 200 in 5.2408 ms
+2026-09-10 20:17:37.070 [INF] HTTP GET /api/v1/products responded 200 in 6.0694 ms
+2026-09-10 20:17:38.514 [INF] HTTP GET /api/v1/customers responded 200 in 2.5245 ms
+2026-09-10 20:18:30.573 [INF] ----- Transaction başladı "8421b07c-9d39-4de0-8835-fce5c9f7af80" for CreateCustomerCommand ({"CustomerType":"Individual","FirstName":"ferhat","LastName":"arkan","NationalIdentityNumber":"23980130444","Title":"","TaxOffice":"","TaxNumber":"","Address":"Uluyol Mah.","PhoneNumber":"05468548525","Email":"cukurovabmb@gmail.com","$type":"CreateCustomerCommand"})
+2026-09-10 20:18:30.616 [INF] ----- Transaction commit edildi "8421b07c-9d39-4de0-8835-fce5c9f7af80" for CreateCustomerCommand
+2026-09-10 20:18:30.624 [INF] HTTP POST /api/v1/customers responded 201 in 76.9160 ms
+2026-09-10 20:18:30.636 [INF] HTTP GET /api/v1/customers responded 200 in 3.6823 ms
+2026-09-10 20:18:41.752 [INF] HTTP GET /api/v1/invoices/paginated responded 200 in 4.8703 ms
+2026-09-10 20:18:44.429 [INF] HTTP GET /api/v1/customers responded 200 in 3.0079 ms
+2026-09-10 20:18:46.762 [INF] HTTP GET /api/v1/products responded 200 in 5.8469 ms
+2026-09-10 20:18:49.079 [INF] HTTP GET /api/v1/customers responded 200 in 2.7416 ms
+2026-09-10 20:20:41.961 [INF] HTTP GET /api/v1/products responded 200 in 2.9887 ms

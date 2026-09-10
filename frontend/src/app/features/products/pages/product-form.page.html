@@ -1,0 +1,66 @@
+<div class="page-header">
+    <h2>{{ pageTitle }}</h2>
+</div>
+
+@if (errorMessage(); as error) {
+<div class="alert alert-error" role="alert">{{ error }}</div>
+}
+
+<form class="form-grid" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>
+        Ürün adı
+        <input type="text" formControlName="name" />
+        @if (form.controls['name'].invalid && form.controls['name'].touched) {
+        <small class="error-message">Ürün adı zorunludur.</small>
+        }
+    </label>
+
+    <label>
+        SKU
+        <input type="text" formControlName="sku" />
+        @if (form.controls['sku'].invalid && form.controls['sku'].touched) {
+        <small class="error-message">SKU zorunludur.</small>
+        }
+    </label>
+
+    <label>
+        Fiyat
+        <input type="number" min="0" step="0.01" formControlName="price" />
+        @if (form.controls['price'].invalid && form.controls['price'].touched) {
+        <small class="error-message">Geçerli bir fiyat girilmelidir.</small>
+        }
+    </label>
+
+    <label>
+        Marka
+        <input type="text" formControlName="brand" />
+        @if (form.controls['brand'].invalid && form.controls['brand'].touched) {
+        <small class="error-message">Marka zorunludur.</small>
+        }
+    </label>
+
+    <label>
+        Kategori
+        <select formControlName="categoryId">
+            <option value="">Kategori seçin</option>
+            @for (category of categories(); track category.id) {
+            <option [value]="category.id">{{ category.name }}</option>
+            }
+        </select>
+        @if (form.controls['categoryId'].invalid && form.controls['categoryId'].touched) {
+        <small class="error-message">Kategori zorunludur.</small>
+        }
+    </label>
+
+    <label class="full-width">
+        Özellikler (JSON)
+        <textarea rows="5" formControlName="properties"></textarea>
+    </label>
+
+    <div class="form-actions full-width">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">İptal</button>
+        <button type="submit" class="btn btn-primary" [disabled]="loading() || loadingCategories()">
+            {{ loading() ? 'Kaydediliyor...' : 'Kaydet' }}
+        </button>
+    </div>
+</form>

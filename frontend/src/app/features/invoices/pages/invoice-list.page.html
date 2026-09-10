@@ -1,0 +1,50 @@
+<h2>Faturalar</h2>
+
+@if (errorMessage(); as error) {
+  <div class="alert alert-error" role="alert">{{ error }}</div>
+}
+
+@if (loading()) {
+  <p class="loading">Yükleniyor...</p>
+} @else {
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Fatura No</th>
+        <th>Müşteri</th>
+        <th>Vade Tarihi</th>
+        <th class="text-right">Toplam</th>
+        <th>Durum</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (invoice of invoices(); track invoice.id) {
+        <tr>
+          <td>{{ invoice.invoiceNumber }}</td>
+          <td>{{ invoice.customerName }}</td>
+          <td>{{ invoice.dueDate | date: 'dd.MM.yyyy' }}</td>
+          <td class="text-right">{{ invoice.grandTotal | number: '1.2-2' }}</td>
+          <td>
+            <span class="status-badge" [class]="statusCssClasses[invoice.status]">
+              {{ statusLabels[invoice.status] }}
+            </span>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="5" class="empty-row">Kayıtlı fatura bulunmuyor.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button type="button" [disabled]="!hasPrevious()" (click)="goToPage(pageNumber() - 1)">
+      ← Önceki
+    </button>
+    <span>Sayfa {{ pageNumber() }} / {{ totalPages() }} ({{ totalCount() }} kayıt)</span>
+    <button type="button" [disabled]="!hasNext()" (click)="goToPage(pageNumber() + 1)">
+      Sonraki →
+    </button>
+  </div>
+}

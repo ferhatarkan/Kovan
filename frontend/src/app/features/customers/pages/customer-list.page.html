@@ -1,0 +1,62 @@
+<div class="page-header">
+  <h2>Müşteriler</h2>
+  <button type="button" class="btn btn-primary" (click)="openCreate()">
+    + Yeni Müşteri
+  </button>
+</div>
+
+@if (errorMessage(); as error) {
+  <div class="alert alert-error" role="alert">{{ error }}</div>
+}
+
+@if (loading()) {
+  <p class="loading">Yükleniyor...</p>
+} @else {
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Ad / Unvan</th>
+        <th>Tip</th>
+        <th>E-posta</th>
+        <th>Telefon</th>
+        <th>İşlemler</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (customer of customers(); track customer.id) {
+        <tr>
+          <td>{{ customer.displayName }}</td>
+          <td>{{ typeLabel(customer.customerType) }}</td>
+          <td>{{ customer.email || '—' }}</td>
+          <td>{{ customer.phoneNumber }}</td>
+          <td class="actions">
+            <button type="button" class="btn btn-sm btn-secondary" (click)="openEdit(customer.id)">
+              Düzenle
+            </button>
+            <button type="button" class="btn btn-sm btn-danger" (click)="deleteCustomer(customer.id)" [disabled]="deletingCustomerId() === customer.id">
+              @if (deletingCustomerId() === customer.id) {
+                <span class="spinner"></span>
+              } @else {
+                Sil
+              }
+            </button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="5" class="empty-row">Kayıtlı müşteri bulunmuyor.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button type="button" [disabled]="!hasPrevious()" (click)="goToPage(pageNumber() - 1)">
+      ← Önceki
+    </button>
+    <span>Sayfa {{ pageNumber() }} / {{ totalPages() }} ({{ totalCount() }} kayıt)</span>
+    <button type="button" [disabled]="!hasNext()" (click)="goToPage(pageNumber() + 1)">
+      Sonraki →
+    </button>
+  </div>
+}

@@ -1,0 +1,114 @@
+<h2>{{ pageTitle }}</h2>
+
+@if (errorMessage(); as error) {
+  <div class="alert alert-error" role="alert">{{ error }}</div>
+}
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-section">
+    <h3>Müşteri Tipi</h3>
+    <div class="form-group">
+      <label for="customerType">Müşteri Tipi</label>
+      <select id="customerType" formControlName="customerType" class="form-control">
+        <option [value]="customerType.Individual">Bireysel</option>
+        <option [value]="customerType.Corporate">Kurumsal</option>
+      </select>
+      @if (form.get('customerType')?.invalid && form.get('customerType')?.touched) {
+        <small class="error-message">Müşteri tipi seçilmelidir.</small>
+      }
+    </div>
+  </div>
+
+  @if (form.get('customerType')?.value === customerType.Individual) {
+    <div class="form-section">
+      <h3>Bireysel Bilgiler</h3>
+      <div class="form-group">
+        <label for="firstName">Ad</label>
+        <input id="firstName" type="text" formControlName="firstName" class="form-control" />
+        @if (form.get('firstName')?.invalid && form.get('firstName')?.touched) {
+          <small class="error-message">Ad alanı zorunludur.</small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="lastName">Soyad</label>
+        <input id="lastName" type="text" formControlName="lastName" class="form-control" />
+        @if (form.get('lastName')?.invalid && form.get('lastName')?.touched) {
+          <small class="error-message">Soyad alanı zorunludur.</small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="nationalIdentityNumber">TC Kimlik No</label>
+        <input id="nationalIdentityNumber" type="text" formControlName="nationalIdentityNumber" class="form-control" />
+        @if (form.get('nationalIdentityNumber')?.invalid && form.get('nationalIdentityNumber')?.touched) {
+          <small class="error-message">TC Kimlik No alanı zorunludur.</small>
+        }
+      </div>
+    </div>
+  }
+
+  @if (form.get('customerType')?.value === customerType.Corporate) {
+    <div class="form-section">
+      <h3>Kurumsal Bilgiler</h3>
+      <div class="form-group">
+        <label for="title">Unvan</label>
+        <input id="title" type="text" formControlName="title" class="form-control" />
+        @if (form.get('title')?.invalid && form.get('title')?.touched) {
+          <small class="error-message">Unvan alanı zorunludur.</small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="taxOffice">Vergi Dairesi</label>
+        <input id="taxOffice" type="text" formControlName="taxOffice" class="form-control" />
+        @if (form.get('taxOffice')?.invalid && form.get('taxOffice')?.touched) {
+          <small class="error-message">Vergi dairesi alanı zorunludur.</small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="taxNumber">Vergi No</label>
+        <input id="taxNumber" type="text" formControlName="taxNumber" class="form-control" />
+        @if (form.get('taxNumber')?.invalid && form.get('taxNumber')?.touched) {
+          <small class="error-message">Vergi no alanı zorunludur.</small>
+        }
+      </div>
+    </div>
+  }
+
+  <div class="form-section">
+    <h3>İletişim Bilgileri</h3>
+    <div class="form-group">
+      <label for="phoneNumber">Telefon</label>
+      <input id="phoneNumber" type="tel" formControlName="phoneNumber" class="form-control" />
+      @if (form.get('phoneNumber')?.invalid && form.get('phoneNumber')?.touched) {
+        <small class="error-message">Telefon alanı zorunludur.</small>
+      }
+    </div>
+    <div class="form-group">
+      <label for="email">E-posta</label>
+      <input id="email" type="email" formControlName="email" class="form-control" />
+      @if (form.get('email')?.invalid && form.get('email')?.touched) {
+        <small class="error-message">Geçerli bir e-posta adresi giriniz.</small>
+      }
+    </div>
+    <div class="form-group">
+      <label for="address">Adres</label>
+      <textarea id="address" formControlName="address" class="form-control" rows="3"></textarea>
+      @if (form.get('address')?.invalid && form.get('address')?.touched) {
+        <small class="error-message">Adres alanı zorunludur.</small>
+      }
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="button" class="btn btn-secondary" (click)="onCancel()" [disabled]="loading()">
+      İptal
+    </button>
+    <button type="submit" class="btn btn-primary" [disabled]="loading()">
+      @if (loading()) {
+        <span class="spinner"></span>
+        Kaydediliyor...
+      } @else {
+        {{ isEditMode() ? 'Güncelle' : 'Kaydet' }}
+      }
+    </button>
+  </div>
+</form>

@@ -1,0 +1,556 @@
+2026-08-18 16:18:56.690 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-18 16:18:56.780 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-18 16:18:57.307 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-18 16:56:56.587 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-18 16:56:56.679 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-18 16:56:57.309 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-18 18:23:08.504 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-18 18:23:08.573 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-18 18:23:09.075 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-18 18:27:36.462 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-18 18:27:36.540 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-18 18:27:37.062 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-18 18:28:35.450 [WRN] Failed to determine the https port for redirect.
+2026-08-18 18:28:35.474 [INF] HTTP GET /api/Categories responded 401 in 49.5089 ms
+2026-08-18 18:31:42.544 [ERR] Kovan Request: Unhandled Exception for Request LoginCommand {"Email":"cukurovabmb@gmail.com","Password":"Qwert123321.","$type":"LoginCommand"}
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+2026-08-18 18:31:42.552 [ERR] HTTP POST /api/Auth/login responded 500 in 95.8684 ms
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Login(LoginCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-08-18 18:31:42.563 [ERR] Beklenmedik bir hata oluştu: One or more validation failures have occurred.
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Login(LoginCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Kovan.Api.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Middleware/ErrorHandlingMiddleware.cs:line 23
+2026-08-18 18:32:11.749 [ERR] Kovan Request: Unhandled Exception for Request LoginCommand {"Email":"cukurovabmb@gmail.com","Password":"Kovan1453","$type":"LoginCommand"}
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+2026-08-18 18:32:11.751 [ERR] HTTP POST /api/Auth/login responded 500 in 13.6037 ms
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Login(LoginCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-08-18 18:32:11.751 [ERR] Beklenmedik bir hata oluştu: One or more validation failures have occurred.
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Login(LoginCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Kovan.Api.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Middleware/ErrorHandlingMiddleware.cs:line 23
+2026-08-18 18:32:21.213 [ERR] Kovan Request: Unhandled Exception for Request LoginCommand {"Email":"cukurovabmb@gmail.com","Password":"Kovan1453.","$type":"LoginCommand"}
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+2026-08-18 18:32:21.214 [ERR] HTTP POST /api/Auth/login responded 500 in 13.5711 ms
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Login(LoginCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-08-18 18:32:21.215 [ERR] Beklenmedik bir hata oluştu: One or more validation failures have occurred.
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Login.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Login/LoginCommandHandler.cs:line 26
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Login(LoginCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Kovan.Api.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Middleware/ErrorHandlingMiddleware.cs:line 23
+2026-08-18 18:33:27.141 [INF] ----- Transaction başladı "5ff6dc3e-e593-4b9f-afb8-7cc148a69ff1" for RegisterCommand ({"FirstName":"ferhat","LastName":"arkan","Email":"cukurovabmb@gmail.com","Password":"Kovan1453","$type":"RegisterCommand"})
+2026-08-18 18:33:27.189 [ERR] ----- Transaction geri alınıyor "5ff6dc3e-e593-4b9f-afb8-7cc148a69ff1" for RegisterCommand
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 55
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+2026-08-18 18:33:27.195 [ERR] Kovan Request: Unhandled Exception for Request RegisterCommand {"FirstName":"ferhat","LastName":"arkan","Email":"cukurovabmb@gmail.com","Password":"Kovan1453","$type":"RegisterCommand"}
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 55
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 52
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 30
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+2026-08-18 18:33:27.197 [ERR] HTTP POST /api/Auth/register responded 500 in 83.2476 ms
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 55
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 52
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 30
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Register(RegisterCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 25
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-08-18 18:33:27.197 [ERR] Beklenmedik bir hata oluştu: One or more validation failures have occurred.
+Kovan.Application.Common.Exceptions.ValidationException: One or more validation failures have occurred.
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 55
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 52
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 30
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Register(RegisterCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 25
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Kovan.Api.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Middleware/ErrorHandlingMiddleware.cs:line 23
+2026-08-18 18:33:41.620 [INF] ----- Transaction başladı "ed99a922-8f43-4d05-84f3-6813cfd91b0c" for RegisterCommand ({"FirstName":"ferhat","LastName":"arkan","Email":"cukurovabmb@gmail.com","Password":"Kovan1453.","$type":"RegisterCommand"})
+2026-08-18 18:33:41.765 [ERR] ----- Transaction geri alınıyor "ed99a922-8f43-4d05-84f3-6813cfd91b0c" for RegisterCommand
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 59
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+2026-08-18 18:33:41.766 [ERR] Kovan Request: Unhandled Exception for Request RegisterCommand {"FirstName":"ferhat","LastName":"arkan","Email":"cukurovabmb@gmail.com","Password":"Kovan1453.","$type":"RegisterCommand"}
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 59
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 52
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 30
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+2026-08-18 18:33:41.767 [ERR] HTTP POST /api/Auth/register responded 500 in 150.9813 ms
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 59
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 52
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 30
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Register(RegisterCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 25
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-08-18 18:33:41.768 [ERR] Beklenmedik bir hata oluştu: Role ADMIN does not exist.
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 59
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 52
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 30
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Register(RegisterCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 25
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Kovan.Api.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Middleware/ErrorHandlingMiddleware.cs:line 23
+2026-08-18 18:33:50.659 [INF] ----- Transaction başladı "3cc1de30-62d3-40cd-a151-9ce742a75b9b" for RegisterCommand ({"FirstName":"ferhat","LastName":"arkan","Email":"cukurovabmb@gmail.com","Password":"Kovan1453.","$type":"RegisterCommand"})
+2026-08-18 18:33:50.717 [ERR] ----- Transaction geri alınıyor "3cc1de30-62d3-40cd-a151-9ce742a75b9b" for RegisterCommand
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 59
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+2026-08-18 18:33:50.718 [ERR] Kovan Request: Unhandled Exception for Request RegisterCommand {"FirstName":"ferhat","LastName":"arkan","Email":"cukurovabmb@gmail.com","Password":"Kovan1453.","$type":"RegisterCommand"}
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 59
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 52
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 30
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+2026-08-18 18:33:50.719 [ERR] HTTP POST /api/Auth/register responded 500 in 71.4033 ms
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 59
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 52
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 30
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Register(RegisterCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 25
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-08-18 18:33:50.720 [ERR] Beklenmedik bir hata oluştu: Role ADMIN does not exist.
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 59
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 52
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 30
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Register(RegisterCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 25
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Kovan.Api.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Middleware/ErrorHandlingMiddleware.cs:line 23
+2026-08-18 18:35:47.958 [INF] ----- Transaction başladı "345fe6f8-efef-45f3-b026-d0da97010ce4" for RegisterCommand ({"FirstName":"ferhat","LastName":"arkan","Email":"ferhatarkan@icloud.com","Password":"Kovan1453.","$type":"RegisterCommand"})
+2026-08-18 18:35:48.017 [ERR] ----- Transaction geri alınıyor "345fe6f8-efef-45f3-b026-d0da97010ce4" for RegisterCommand
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 59
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+2026-08-18 18:35:48.018 [ERR] Kovan Request: Unhandled Exception for Request RegisterCommand {"FirstName":"ferhat","LastName":"arkan","Email":"ferhatarkan@icloud.com","Password":"Kovan1453.","$type":"RegisterCommand"}
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 59
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 52
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 30
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+2026-08-18 18:35:48.020 [ERR] HTTP POST /api/Auth/register responded 500 in 66.0830 ms
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 59
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 52
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 30
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Register(RegisterCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 25
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-08-18 18:35:48.021 [ERR] Beklenmedik bir hata oluştu: Role ADMIN does not exist.
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at Kovan.Application.Features.Auth.Commands.Register.RegisterCommandHandler.Handle(RegisterCommand request, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Features/Auth/Commands/Register/RegisterCommandHandler.cs:line 59
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 39
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 52
+--- End of stack trace from previous location ---
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.<>c__DisplayClass3_0.<<Handle>b__0>d.MoveNext() in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 53
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Kovan.Infrastructure.Common.Behaviors.TransactionalBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Infrastructure/Kovan.Infrastructure/Common/Behaviors/TransactionalBehavior.cs:line 30
+   at Kovan.Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/ValidationBehaviour.cs:line 34
+   at Kovan.Application.Common.Behaviours.UnhandledExceptionBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/ferhatarkan/Kovan/backend/src/Core/Kovan.Application/Common/Behaviors/UnhandledExceptionBehaviour.cs:line 22
+   at Kovan.Api.Controllers.AuthController.Register(RegisterCommand command) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Controllers/AuthController.cs:line 25
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Kovan.Api.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context) in /Users/ferhatarkan/Kovan/backend/src/Presentation/Kovan.Api/Middleware/ErrorHandlingMiddleware.cs:line 23
+2026-08-18 18:39:19.151 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-18 18:39:19.225 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-18 18:39:19.720 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-18 18:39:44.343 [WRN] Failed to determine the https port for redirect.
+2026-08-18 18:39:44.514 [INF] HTTP GET /api/Categories responded 200 in 195.4036 ms
+2026-08-18 18:52:14.708 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-18 18:52:14.778 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-18 18:52:15.264 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-18 18:52:35.955 [WRN] Failed to determine the https port for redirect.
+2026-08-18 18:52:36.120 [INF] HTTP GET /api/Categories responded 200 in 188.4257 ms
+2026-08-18 18:55:25.292 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-18 18:55:25.364 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-18 18:55:25.868 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-18 18:56:35.302 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-18 18:56:35.376 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-18 18:56:35.871 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-18 18:56:53.543 [WRN] Failed to determine the https port for redirect.
+2026-08-18 18:56:53.714 [INF] HTTP GET /api/Categories responded 200 in 197.0982 ms
+2026-08-18 18:58:57.983 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-18 18:58:58.058 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-18 18:58:58.571 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-18 19:00:43.552 [INF] Vadesi Geçmiş Faturaları Güncelleme Servisi Başlatıldı.
+2026-08-18 19:00:43.623 [INF] Vadesi geçmiş faturalar kontrol ediliyor...
+2026-08-18 19:00:44.122 [INF] 0 adet fatura 'Vadesi Geçti' olarak güncellendi.
+2026-08-18 19:02:36.001 [WRN] Failed to determine the https port for redirect.
+2026-08-18 19:02:36.011 [INF] HTTP GET /swagger/index.html/categories responded 404 in 22.9416 ms
+2026-08-18 19:02:36.139 [INF] HTTP GET /swagger/index.html/categories responded 404 in 1.7083 ms
+2026-08-18 19:02:37.130 [INF] HTTP GET /swagger/index.html/categories responded 404 in 1.4142 ms
+2026-08-18 19:02:37.203 [INF] HTTP GET /swagger/index.html/categories responded 404 in 0.3168 ms
+2026-08-18 19:02:38.098 [INF] HTTP GET /swagger/index.html/categories responded 404 in 0.5515 ms
+2026-08-18 19:02:38.178 [INF] HTTP GET /swagger/index.html/categories responded 404 in 0.2847 ms
+2026-08-18 19:02:38.246 [INF] HTTP GET /swagger/index.html/categories responded 404 in 0.2822 ms
+2026-08-18 19:02:38.309 [INF] HTTP GET /swagger/index.html/categories responded 404 in 0.2800 ms
+2026-08-18 19:02:38.410 [INF] HTTP GET /swagger/index.html/categories responded 404 in 0.2150 ms
+2026-08-18 19:02:38.476 [INF] HTTP GET /swagger/index.html/categories responded 404 in 0.2171 ms
+2026-08-18 19:02:38.599 [INF] HTTP GET /swagger/index.html/categories responded 404 in 0.2772 ms
+2026-08-18 19:02:38.667 [INF] HTTP GET /swagger/index.html/categories responded 404 in 0.2271 ms
+2026-08-18 19:03:27.125 [INF] HTTP GET /api/Categories responded 200 in 167.5740 ms
+2026-08-18 19:04:55.231 [INF] HTTP GET /api/Categories responded 400 in 8.9366 ms
+2026-08-18 19:04:55.329 [INF] HTTP GET /api/Categories responded 400 in 2.7180 ms
+2026-08-18 19:05:12.221 [INF] HTTP GET /api//categories responded 404 in 0.2172 ms
+2026-08-18 19:05:12.299 [INF] HTTP GET /api//categories responded 404 in 0.3790 ms
+2026-08-18 19:05:29.943 [INF] HTTP GET /api//categories responded 404 in 0.5789 ms
+2026-08-18 19:05:30.072 [INF] HTTP GET /api//categories responded 404 in 0.5749 ms
+2026-08-18 19:06:21.599 [INF] HTTP GET /api/categories responded 200 in 81.8640 ms
+2026-08-18 19:06:21.888 [INF] HTTP GET /api/categories responded 200 in 33.2813 ms
+2026-08-18 19:06:26.439 [INF] HTTP GET /api/categories responded 200 in 182.7834 ms
+2026-08-18 19:06:28.524 [INF] HTTP GET /api/categories responded 200 in 814.9570 ms
+2026-08-18 19:06:30.273 [INF] HTTP GET /api/categories responded 200 in 661.9378 ms
+2026-08-18 19:07:24.579 [INF] HTTP GET /api/categories responded 200 in 5.1623 ms
+2026-08-18 19:07:24.673 [INF] HTTP GET /api/categories responded 200 in 3.7063 ms
+2026-08-18 19:09:57.443 [INF] HTTP GET /api/categories responded 200 in 17.7186 ms
+2026-08-18 19:09:57.506 [INF] HTTP GET /api/categories responded 200 in 3.6207 ms
+2026-08-18 19:11:33.270 [INF] HTTP GET /api/categories responded 200 in 34.5895 ms
+2026-08-18 19:11:33.407 [INF] HTTP GET /api/categories responded 200 in 26.1576 ms
+2026-08-18 19:49:35.340 [INF] HTTP GET /api/categories responded 200 in 37.8326 ms
+2026-08-18 19:49:35.340 [INF] HTTP GET /api/categories responded 200 in 37.8059 ms
+2026-08-18 19:49:35.475 [INF] HTTP GET /api/categories responded 200 in 2.8000 ms
+2026-08-18 19:49:35.477 [INF] HTTP GET /api/categories responded 200 in 1.4688 ms
+2026-08-18 19:49:39.050 [INF] HTTP GET /api/categories responded 200 in 3.0767 ms
+2026-08-18 19:50:32.956 [INF] HTTP GET /api/categories responded 200 in 1.8031 ms
+2026-08-18 19:50:33.080 [INF] HTTP GET /api/categories responded 200 in 2.5120 ms
+2026-08-18 19:50:36.452 [INF] HTTP GET /api/categories responded 200 in 5.0578 ms
+2026-08-18 19:50:36.575 [INF] HTTP GET /api/categories responded 200 in 2.5008 ms
+2026-08-18 19:50:37.226 [INF] HTTP GET /api/categories responded 200 in 4.5332 ms
+2026-08-18 19:50:37.297 [INF] HTTP GET /api/categories responded 200 in 2.0633 ms
+2026-08-18 19:50:37.431 [INF] HTTP GET /api/categories responded 200 in 2.8095 ms
+2026-08-18 19:50:37.502 [INF] HTTP GET /api/categories responded 200 in 3.1163 ms
+2026-08-18 19:50:37.604 [INF] HTTP GET /api/categories responded 200 in 1.9941 ms
+2026-08-18 19:50:37.663 [INF] HTTP GET /api/categories responded 200 in 4.5457 ms
+2026-08-18 19:50:37.772 [INF] HTTP GET /api/categories responded 200 in 3.4525 ms
+2026-08-18 19:50:37.833 [INF] HTTP GET /api/categories responded 200 in 4.0146 ms
+2026-08-18 19:50:37.931 [INF] HTTP GET /api/categories responded 200 in 3.0879 ms
+2026-08-18 19:50:37.996 [INF] HTTP GET /api/categories responded 200 in 2.2279 ms
+2026-08-18 19:56:14.883 [INF] HTTP GET /api/categories responded 200 in 13.7103 ms
+2026-08-18 19:56:15.011 [INF] HTTP GET /api/categories responded 200 in 3.0822 ms
+2026-08-18 19:56:48.772 [INF] HTTP GET /api/categories responded 200 in 16.2785 ms
+2026-08-18 19:56:48.916 [INF] HTTP GET /api/categories responded 200 in 16.3703 ms
+2026-08-18 19:57:00.161 [INF] HTTP GET /api/categories responded 200 in 1.7886 ms
+2026-08-18 19:57:00.243 [INF] HTTP GET /api/categories responded 200 in 3.1412 ms
